@@ -39,7 +39,7 @@ extern "C" {
 
 /**
  * An SDL_GUID is a 128-bit identifier for an input device that
- *   identifies that device across runs of SDL programs on the same
+ *   identifies that device across runs of SDL src on the same
  *   platform.  If the device is detached and then re-attached to a
  *   different port, or if the base system is rebooted, the device
  *   should still report the same GUID.
