@@ -14,8 +14,8 @@ macro(set_and_check _var _file)
     endif()
 endmacro()
 
-get_filename_component(CMAKE_CURRENT_LIST_DIR . REALPATH)
-get_filename_component(prefix "../../.." ABSOLUTE)
+get_filename_component(CMAKE_CURRENT_LIST_DIR ${CMAKE_CURRENT_LIST_DIR} REALPATH)
+get_filename_component(prefix "${CMAKE_CURRENT_LIST_DIR}/../../.." ABSOLUTE)
 
 set(exec_prefix "${prefix}")
 set(bindir "${exec_prefix}/bin")

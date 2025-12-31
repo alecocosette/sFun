@@ -32,7 +32,7 @@ if(SDL_INSTALL_TESTS)
     include(GNUInstallDirs)
 endif()
 
-if(n3ds)
+if(N3DS)
     link_libraries(SDL2::SDL2main)
 endif()
 
@@ -143,10 +143,10 @@ add_sdl_test_executable(testmouse testmouse.c)
 
 if(APPLE)
     add_sdl_test_executable(testnative NEEDS_RESOURCES
-            testnative.c
-            testnativecocoa.m
-            testnativex11.c
-            testutils.c
+        testnative.c
+        testnativecocoa.m
+        testnativex11.c
+        testutils.c
     )
 
     cmake_push_check_state(RESET)
@@ -236,7 +236,7 @@ if(OPENGL_FOUND)
         target_link_libraries(testshader OpenGL::GL)
         target_link_libraries(testgl2 OpenGL::GL)
     else()
-        if(emscripten AND OPENGL_gl_LIBRARY STREQUAL "nul")
+        if(EMSCRIPTEN AND OPENGL_gl_LIBRARY STREQUAL "nul")
             set(OPENGL_gl_LIBRARY GL)
         endif()
         # emscripten's FindOpenGL.cmake does not create OpenGL::GL
@@ -244,7 +244,7 @@ if(OPENGL_FOUND)
         target_link_libraries(testgl2 ${OPENGL_gl_LIBRARY})
     endif()
 endif()
-if(emscripten)
+if(EMSCRIPTEN)
     target_link_libraries(testshader -sLEGACY_GL_EMULATION)
 endif()
 
@@ -328,7 +328,7 @@ if(PSP)
     endforeach()
 endif()
 
-if(n3ds)
+if(N3DS)
     set(ROMFS_DIR "${CMAKE_CURRENT_BINARY_DIR}/romfs")
     file(COPY ${RESOURCE_FILES} DESTINATION "${ROMFS_DIR}")
 
@@ -339,7 +339,7 @@ if(n3ds)
             NAME "SDL-${APP}"
             DESCRIPTION "SDL2 Test suite"
             AUTHOR "SDL2 Contributors"
-            ICON "n3ds/logo48x48.png"
+            ICON "${CMAKE_CURRENT_SOURCE_DIR}/n3ds/logo48x48.png"
         )
         ctr_create_3dsx(
             ${APP}
@@ -386,7 +386,7 @@ if(APPLE)
         # CMake 3.7 and above.
         message(WARNING "Unable to set Bundle ID for Apple .app builds due to old CMake (pre 3.7).")
     else()
-        get_property(TARGETS DIRECTORY . PROPERTY BUILDSYSTEM_TARGETS)
+        get_property(TARGETS DIRECTORY ${CMAKE_CURRENT_LIST_DIR} PROPERTY BUILDSYSTEM_TARGETS)
         foreach(CURRENT_TARGET IN LISTS TARGETS)
             get_property(TARGET_TYPE TARGET ${CURRENT_TARGET} PROPERTY TYPE)
             if(TARGET_TYPE STREQUAL "EXECUTABLE")
