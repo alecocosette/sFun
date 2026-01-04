@@ -1,6 +1,6 @@
 #define SDL_MAIN_HANDLED
 #include <SDL2/SDL.h>
-
+#include "CPU.h"
 int main(int argc, char* argv[]) {
     SDL_Init(SDL_INIT_VIDEO);
     SDL_Window* window = SDL_CreateWindow("Emulator", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
@@ -10,6 +10,8 @@ int main(int argc, char* argv[]) {
         SDL_Quit();
         return 1;
     }
+    CPU cpu;
+    cpu.reset();
     bool quit = false;
     SDL_Event event;
     while (!quit) {

@@ -128,6 +128,30 @@ sFun/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/build
 .PHONY : sFun/fast
 
+src/CPU.obj: src/CPU.cpp.obj
+.PHONY : src/CPU.obj
+
+# target to build an object file
+src/CPU.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/src/CPU.cpp.obj
+.PHONY : src/CPU.cpp.obj
+
+src/CPU.i: src/CPU.cpp.i
+.PHONY : src/CPU.i
+
+# target to preprocess a source file
+src/CPU.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/src/CPU.cpp.i
+.PHONY : src/CPU.cpp.i
+
+src/CPU.s: src/CPU.cpp.s
+.PHONY : src/CPU.s
+
+# target to generate assembly for a file
+src/CPU.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/src/CPU.cpp.s
+.PHONY : src/CPU.cpp.s
+
 src/main.obj: src/main.cpp.obj
 .PHONY : src/main.obj
 
@@ -161,6 +185,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... sFun
+	@echo ... src/CPU.obj
+	@echo ... src/CPU.i
+	@echo ... src/CPU.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s
