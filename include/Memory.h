@@ -4,11 +4,17 @@
 
 #ifndef MEMORY_H
 #define MEMORY_H
+#pragma once
+#include <cstdint>
+#include <vector>
 
 
-
-class Memory {
-
+struct Memory {
+  //wram
+  std::vector<uint8_t> wram;
+  Memory();
+  uint8_t read8(uint16_t address);
+  void write8(uint16_t address, uint8_t value);
 };
 
 

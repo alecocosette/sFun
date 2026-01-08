@@ -10,6 +10,7 @@ set(SDL2_ROOT "C:/Users/yeims/sFun/extra/SDL2/SDL2-2.28.5/x86_64-w64-mingw32")
 add_executable(sFun
         src/cpu.cpp
         src/main.cpp
+        src/Memory.cpp
 )
 
 # Include headers

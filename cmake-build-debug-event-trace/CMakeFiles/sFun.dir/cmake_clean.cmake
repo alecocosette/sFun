@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/sFun.dir/src/CPU.cpp.obj"
+  "CMakeFiles/sFun.dir/src/CPU.cpp.obj.d"
   "CMakeFiles/sFun.dir/src/main.cpp.obj"
   "CMakeFiles/sFun.dir/src/main.cpp.obj.d"
   "libsFun.dll.a"

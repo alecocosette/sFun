@@ -9,11 +9,14 @@
 #include <stdlib.h>
 #include <stdint.h>
 
+#include "../include/Memory.h"
+
 struct CPU {
     uint16_t A=0, X=0, Y = 0;
     uint16_t PC=0;
     uint16_t SP=0x01FF, PB=0, DP=0, DB=0;
     uint8_t P;
+    Memory * memory;
     //negative
     static uint8_t constexpr FLAG_N = 0x80;
     //overflow
