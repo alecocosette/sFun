@@ -13,8 +13,8 @@ struct Memory {
   //wram
   std::vector<uint8_t> wram;
   Memory();
-  uint8_t read8(uint16_t address);
-  void write8(uint16_t address, uint8_t value);
+  uint8_t read8(uint32_t address);
+  void write8(uint32_t address, uint8_t value);
 };
 
 

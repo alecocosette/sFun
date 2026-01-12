@@ -17,6 +17,7 @@ struct CPU {
     uint16_t SP=0x01FF, PB=0, DP=0, DB=0;
     uint8_t P;
     Memory * memory;
+
     //negative
     static uint8_t constexpr FLAG_N = 0x80;
     //overflow
@@ -37,6 +38,9 @@ struct CPU {
 
     // break or not emulation
     bool emulation;
+    uint8_t setOPCODE(Memory * memory);
+    void step();
+    uint8_t fetch8();
     bool getFlag(uint8_t flag) const;
     void setFlag(uint8_t flag, bool value);
     void reset();

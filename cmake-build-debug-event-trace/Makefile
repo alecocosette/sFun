@@ -152,6 +152,30 @@ src/CPU.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/src/CPU.cpp.s
 .PHONY : src/CPU.cpp.s
 
+src/Memory.obj: src/Memory.cpp.obj
+.PHONY : src/Memory.obj
+
+# target to build an object file
+src/Memory.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/src/Memory.cpp.obj
+.PHONY : src/Memory.cpp.obj
+
+src/Memory.i: src/Memory.cpp.i
+.PHONY : src/Memory.i
+
+# target to preprocess a source file
+src/Memory.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/src/Memory.cpp.i
+.PHONY : src/Memory.cpp.i
+
+src/Memory.s: src/Memory.cpp.s
+.PHONY : src/Memory.s
+
+# target to generate assembly for a file
+src/Memory.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/src/Memory.cpp.s
+.PHONY : src/Memory.cpp.s
+
 src/main.obj: src/main.cpp.obj
 .PHONY : src/main.obj
 
@@ -188,6 +212,9 @@ help:
 	@echo ... src/CPU.obj
 	@echo ... src/CPU.i
 	@echo ... src/CPU.s
+	@echo ... src/Memory.obj
+	@echo ... src/Memory.i
+	@echo ... src/Memory.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s
