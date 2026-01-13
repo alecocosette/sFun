@@ -22,6 +22,7 @@ uint8_t CPU::fetch8(){
 void CPU::step() {
    uint8_t opcode = fetch8();
 }
+
 void CPU::reset(){
    A = X = Y = 0;
    DB = PB = 0;
