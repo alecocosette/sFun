@@ -7,10 +7,10 @@ If you like this project I hope you can star it and look more into my socials!
 Hope you have an awesome day.
 
 
-# Currently on Week 3
-
-Learning as to how the Memory Map works
-
-# Week 4
+# Currently on Week 4
 
 Cartridges and ROMS
+
+# Next Week: 
+PPU Overview
+
