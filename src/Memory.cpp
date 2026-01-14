@@ -7,6 +7,7 @@
 Memory::Memory() : wram(128*1024, 0){
 
 }
+
 uint8_t Memory::read8(uint32_t address) {
   if ((0xFF0000 & address) == 0x7E0000 || (0xFF0000 & address) == 0x7F0000) {
     return wram[address & 0x01FFFF];

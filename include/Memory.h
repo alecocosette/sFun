@@ -7,10 +7,11 @@
 #pragma once
 #include <cstdint>
 #include <vector>
-
+#include "cart.h"
 
 struct Memory {
   //wram
+  Cart* cart;
   std::vector<uint8_t> wram;
   Memory();
   uint8_t read8(uint32_t address);
