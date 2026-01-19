@@ -152,6 +152,30 @@ src/CPU.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/src/CPU.cpp.s
 .PHONY : src/CPU.cpp.s
 
+src/Cartridge.obj: src/Cartridge.cpp.obj
+.PHONY : src/Cartridge.obj
+
+# target to build an object file
+src/Cartridge.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/src/Cartridge.cpp.obj
+.PHONY : src/Cartridge.cpp.obj
+
+src/Cartridge.i: src/Cartridge.cpp.i
+.PHONY : src/Cartridge.i
+
+# target to preprocess a source file
+src/Cartridge.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/src/Cartridge.cpp.i
+.PHONY : src/Cartridge.cpp.i
+
+src/Cartridge.s: src/Cartridge.cpp.s
+.PHONY : src/Cartridge.s
+
+# target to generate assembly for a file
+src/Cartridge.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/src/Cartridge.cpp.s
+.PHONY : src/Cartridge.cpp.s
+
 src/Memory.obj: src/Memory.cpp.obj
 .PHONY : src/Memory.obj
 
@@ -175,6 +199,30 @@ src/Memory.s: src/Memory.cpp.s
 src/Memory.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/src/Memory.cpp.s
 .PHONY : src/Memory.cpp.s
+
+src/cart.obj: src/cart.cpp.obj
+.PHONY : src/cart.obj
+
+# target to build an object file
+src/cart.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/src/cart.cpp.obj
+.PHONY : src/cart.cpp.obj
+
+src/cart.i: src/cart.cpp.i
+.PHONY : src/cart.i
+
+# target to preprocess a source file
+src/cart.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/src/cart.cpp.i
+.PHONY : src/cart.cpp.i
+
+src/cart.s: src/cart.cpp.s
+.PHONY : src/cart.s
+
+# target to generate assembly for a file
+src/cart.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/src/cart.cpp.s
+.PHONY : src/cart.cpp.s
 
 src/main.obj: src/main.cpp.obj
 .PHONY : src/main.obj
@@ -212,9 +260,15 @@ help:
 	@echo ... src/CPU.obj
 	@echo ... src/CPU.i
 	@echo ... src/CPU.s
+	@echo ... src/Cartridge.obj
+	@echo ... src/Cartridge.i
+	@echo ... src/Cartridge.s
 	@echo ... src/Memory.obj
 	@echo ... src/Memory.i
 	@echo ... src/Memory.s
+	@echo ... src/cart.obj
+	@echo ... src/cart.i
+	@echo ... src/cart.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s
