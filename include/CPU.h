@@ -41,6 +41,7 @@ struct CPU {
     uint8_t setOPCODE(Memory * memory);
     void step();
     uint8_t fetch8();
+    uint16_t fetch16();
     bool getFlag(uint8_t flag) const;
     void setFlag(uint8_t flag, bool value);
     void reset();

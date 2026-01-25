@@ -2,8 +2,7 @@
 // Created by yeims on 12/23/2025.
 //
 
-#ifndef MEMORY_H
-#define MEMORY_H
+
 #pragma once
 #include <cstdint>
 #include <vector>
@@ -11,7 +10,7 @@
 
 struct Memory {
   //wram
-  Cart* cart;
+  Cart* cart = nullptr;
   std::vector<uint8_t> wram;
   Memory();
   uint8_t read8(uint32_t address);
@@ -20,4 +19,4 @@ struct Memory {
 
 
 
-#endif //MEMORY_H
+
