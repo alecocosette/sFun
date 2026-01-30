@@ -19,21 +19,21 @@ struct CPU {
     Memory * memory;
 
     //negative
-    static uint8_t constexpr FLAG_N = 0x80;
+     uint8_t constexpr FLAG_N = 0x80;
     //overflow
-    static uint8_t constexpr FLAG_V = 0x40;
+     uint8_t constexpr FLAG_V = 0x40;
     // A size
-    static uint8_t constexpr FLAG_M = 0x20;
+     uint8_t constexpr FLAG_M = 0x20;
     // Index size
-    static uint8_t constexpr FLAG_X = 0x10;
+     uint8_t constexpr FLAG_X = 0x10;
     // decimal
-    static uint8_t constexpr FLAG_D = 0x08;
+     uint8_t constexpr FLAG_D = 0x08;
     // IRQ disable (idk yet)
-    static uint8_t constexpr FLAG_I = 0x04;
+     uint8_t constexpr FLAG_I = 0x04;
     //zero
-    static uint8_t constexpr FLAG_Z = 0x02;
+     uint8_t constexpr FLAG_Z = 0x02;
     //carry
-    static uint8_t constexpr FLAG_C = 0x01;
+     uint8_t constexpr FLAG_C = 0x01;
 
 
     // break or not emulation
@@ -42,6 +42,16 @@ struct CPU {
     void step();
     uint8_t fetch8();
     uint16_t fetch16();
+
+    // good for optimization apparently
+    inline bool accumulatoris8() const;
+    inline bool indexis8() const;
+ void applyWidthSideEffects(uint8_t oldP);
+ //useful feature from snes9x, look more later
+ void setZN(uint32_t value, int width);
+    void fetchAccumulator();
+    void fetchIndex();
+   void emulationState();
     bool getFlag(uint8_t flag) const;
     void setFlag(uint8_t flag, bool value);
     void reset();
