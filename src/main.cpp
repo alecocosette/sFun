@@ -1,6 +1,8 @@
 #define SDL_MAIN_HANDLED
 #include <SDL2/SDL.h>
 #include "../include/CPU.h"
+#include "../include/Memory.h"
+#include <iostream>
 int main(int argc, char* argv[]) {
     SDL_Init(SDL_INIT_VIDEO);
     SDL_Window* window = SDL_CreateWindow("Emulator", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
@@ -10,8 +12,22 @@ int main(int argc, char* argv[]) {
         SDL_Quit();
         return 1;
     }
-    CPU cpu;
+    Memory memory;
+    CPU cpu(&memory);
+    std::vector<uint8_t> testROM = {
+        0xA9, 0x01, // LDA #$01
+        0xEA,       // NOP
+        0xEA,       // NOP
+        0x00        // BRK
+    };
+    memory.loadROM(testROM);
+
+
+
     cpu.reset();
+    for (int i = 0; i < testROM.size(); i++) {
+        cpu.step();
+    }
     bool quit = false;
     SDL_Event event;
     while (!quit) {

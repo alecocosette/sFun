@@ -12,6 +12,7 @@ add_executable(sFun
         src/main.cpp
         src/Memory.cpp
         src/cart.cpp
+
 )
 
 # Include headers

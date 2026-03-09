@@ -17,23 +17,23 @@ struct CPU {
     uint16_t SP=0x01FF, PB=0, DP=0, DB=0;
     uint8_t P;
     Memory * memory;
-
+    CPU(Memory* mem);
     //negative
-     uint8_t constexpr FLAG_N = 0x80;
+     static uint8_t constexpr FLAG_N = 0x80;
     //overflow
-     uint8_t constexpr FLAG_V = 0x40;
+     static uint8_t constexpr FLAG_V = 0x40;
     // A size
-     uint8_t constexpr FLAG_M = 0x20;
+     static uint8_t constexpr FLAG_M = 0x20;
     // Index size
-     uint8_t constexpr FLAG_X = 0x10;
+     static uint8_t constexpr FLAG_X = 0x10;
     // decimal
-     uint8_t constexpr FLAG_D = 0x08;
+     static uint8_t constexpr FLAG_D = 0x08;
     // IRQ disable (idk yet)
-     uint8_t constexpr FLAG_I = 0x04;
+     static uint8_t constexpr FLAG_I = 0x04;
     //zero
-     uint8_t constexpr FLAG_Z = 0x02;
+     static uint8_t constexpr FLAG_Z = 0x02;
     //carry
-     uint8_t constexpr FLAG_C = 0x01;
+     static uint8_t constexpr FLAG_C = 0x01;
 
 
     // break or not emulation
@@ -42,19 +42,42 @@ struct CPU {
     void step();
     uint8_t fetch8();
     uint16_t fetch16();
-
+    uint8_t pop8();
+ uint16_t pop16();
+ void push8(uint8_t val);
+ void push16(uint16_t val);
     // good for optimization apparently
     inline bool accumulatoris8() const;
     inline bool indexis8() const;
  void applyWidthSideEffects(uint8_t oldP);
- //useful feature from snes9x, look more later
+ //useful feature from snes9x
  void setZN(uint32_t value, int width);
-    void fetchAccumulator();
+    uint32_t fetchAccumulator();
     void fetchIndex();
    void emulationState();
     bool getFlag(uint8_t flag) const;
     void setFlag(uint8_t flag, bool value);
     void reset();
+    typedef void(CPU::*OpcodeHandler)();
+ OpcodeHandler opcodeArray[256];
+ void initOpcodeArray();
+void unimplemented_op();
+ void op_NOP();
+ void LDA(uint32_t val);
+ void op_LDA_imm();
+
+    void op_LDA_dp();
+
+    void op_JSR_abs();
+
+    void op_JSL_abs();
+
+    void op_JMP();
+
+    void op_JSR(uint32_t address);
+
+    void op_REP();
+ void op_SEP();
 };
 
 

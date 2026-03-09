@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "sFun::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-sFun-Debug-bf3dc95857bdb4f04bfd.json",
+					"jsonFile" : "target-sFun-Debug-371c61eca8adbd32702a.json",
 					"name" : "sFun",
 					"projectIndex" : 0
 				}
@@ -49,7 +49,7 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/yeims/sFun/cmake-build-debug",
+		"build" : "C:/Users/yeims/sFun/cmake-build-debug-event-trace",
 		"source" : "C:/Users/yeims/sFun"
 	},
 	"version" : 
