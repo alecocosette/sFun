@@ -74,6 +74,16 @@ void unimplemented_op();
 
     void op_JMP();
 
+    void op_BRA();
+
+    void op_branchZeroOrNot();
+
+    void op_BCC();
+
+    void op_BCS();
+
+    void op_BEQ();
+
     void op_JSR(uint32_t address);
 
     void op_REP();

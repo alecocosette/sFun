@@ -119,6 +119,34 @@ void CPU::op_JMP() {
    uint16_t adress = fetch16();
    PC = adress;
 }
+
+void CPU::op_BRA() {
+   uint8_t adress = fetch8();
+   PC++;
+   uint16_t offset = adress<<16;
+   PC += offset;
+}
+void CPU::op_branchZeroOrNot() {
+   uint8_t offset = fetch8();
+   PC++;
+   if (FLAG_Z) {
+      PC += (uint16_t) offset;
+   }
+}
+void CPU::op_BCC() {
+   uint8_t offset = fetch8();
+   PC++;
+   if (!FLAG_C) {
+      PC += offset;
+   }
+}
+void CPU::op_BCS() {
+   uint8_t offset = fetch8();
+   if (FLAG_C) {
+      PC += offset;
+   }
+}
+
 void CPU::op_REP() {
    uint8_t mask = fetch8();
    uint16_t oldP = P;
