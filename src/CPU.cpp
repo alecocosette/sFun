@@ -110,39 +110,57 @@ void CPU::op_JSR_abs() {
    PC = adress;
 }
 void CPU::op_JSL_abs() {
-   uint16_t adress = fetch16();
-   uint16_t returnAdd = PC - 1;
-   push16(returnAdd);
+   uint32_t adress = fetch16();
+   uint8_t bank = fetch8();
+   push8(PB);
+   push16(PC-1);
+   PB = bank;
    PC = adress;
 }
 void CPU::op_JMP() {
    uint16_t adress = fetch16();
    PC = adress;
 }
+void CPU::op_RTS() {
+   uint8_t low = pop8();
+   uint8_t high = pop8();
+   uint16_t returnAdd = high << 8 | low;
+   PC = returnAdd + 1;
 
+}
 void CPU::op_BRA() {
-   uint8_t adress = fetch8();
-   PC++;
-   uint16_t offset = adress<<16;
-   PC += offset;
+   int8_t offset =(int8_t) fetch8();
+   PC+=offset;
 }
 void CPU::op_branchZeroOrNot() {
-   uint8_t offset = fetch8();
-   PC++;
-   if (FLAG_Z) {
+   int8_t offset = (int8_t)fetch8();
+   if (getFlag(FLAG_Z)) {
       PC += (uint16_t) offset;
    }
 }
 void CPU::op_BCC() {
-   uint8_t offset = fetch8();
-   PC++;
-   if (!FLAG_C) {
+   int8_t offset = (int8_t)fetch8();
+   if (!getFlag(FLAG_C)) {
       PC += offset;
    }
 }
 void CPU::op_BCS() {
-   uint8_t offset = fetch8();
-   if (FLAG_C) {
+   int8_t offset = (int8_t)fetch8();
+   if (getFlag(FLAG_C)) {
+      PC += offset;
+   }
+}
+//branch if minus
+void CPU::op_BMI() {
+   int8_t offset = (int8_t)fetch8();
+   if (getFlag(FLAG_N)) {
+      PC += offset;
+   }
+}
+//branch if plus
+void CPU::op_BPL() {
+   int8_t offset = (int8_t)fetch8();
+   if (!getFlag(FLAG_N)) {
       PC += offset;
    }
 }
@@ -151,7 +169,7 @@ void CPU::op_REP() {
    uint8_t mask = fetch8();
    uint16_t oldP = P;
    P = P & ~mask;
-   if (emulation){
+   if (getFlag(emulation)){
       P |= FLAG_M;
       P |= FLAG_X;
    }
@@ -161,7 +179,7 @@ void CPU::op_SEP() {
    uint8_t mask2 = fetch8();
    uint16_t oldPSEP = P;
    P |= mask2;
-   if (emulation) { P |= FLAG_M | FLAG_X; }
+   if (getFlag(emulation)) { P |= FLAG_M | FLAG_X; }
    applyWidthSideEffects(oldPSEP);
 }
 

@@ -74,6 +74,8 @@ void unimplemented_op();
 
     void op_JMP();
 
+    void op_RTS();
+
     void op_BRA();
 
     void op_branchZeroOrNot();
@@ -81,6 +83,10 @@ void unimplemented_op();
     void op_BCC();
 
     void op_BCS();
+
+    void op_BMI();
+
+    void op_BPL();
 
     void op_BEQ();
 
