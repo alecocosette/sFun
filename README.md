@@ -9,5 +9,6 @@ Hope you have an awesome day!
 ## Want to see my current progress?
 [You can see my docs over here](<https://github.com/alecocosette/sFun/tree/main/docs>)
 
-## Please star if you like the progress
-[LinkedIn](<https://www.linkedin.com/in/alejandro-jaimes-coco/>)
+Please star if you like the progress
+
+## [LinkedIn](<https://www.linkedin.com/in/alejandro-jaimes-coco/>)
