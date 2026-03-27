@@ -37,6 +37,23 @@ uint8_t Memory::read8(uint32_t address) {
   // }
   // return 0xFF;
 }
+uint16_t Memory::read16(uint32_t address) {
+
+  uint32_t index = address & 0x7FFF;
+  if (index < rom.size()) {
+    return rom[index];
+  } else {
+    return 0xFF;
+  }
+  //come bacl to it later
+  // if ((0xFF0000 & address) == 0x7E0000 || (0xFF0000 & address) == 0x7F0000) {
+  //   return wram[address & 0x01FFFF];
+  // }
+  // if ((address & 0x8000) && (address <= 0x00FFFF)) {
+  //   return rom[address & 0x7FFF];
+  // }
+  // return 0xFF;
+}
 void Memory::write8(uint32_t address, uint8_t value) {
   if ((address & 0xFF0000) == 0x7E0000 || (address & 0xFF0000) == 0x7F0000) {
     wram[address & 0x1FFFF] = value;

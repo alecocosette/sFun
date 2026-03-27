@@ -99,8 +99,11 @@ void CPU::op_LDA_imm() {
    LDA(value);
 }
 void CPU::op_LDA_dp() {
-   uint8_t addr = fetch8();
-   uint32_t value = memory->read8(addr);
+   uint16_t addr = DP + fetch8();
+
+   uint32_t value = accumulatoris8()
+       ? memory->read8(addr)
+       : memory->read16(addr);
    LDA(value);
 }
 void CPU::op_JSR_abs() {
@@ -132,10 +135,18 @@ void CPU::op_BRA() {
    int8_t offset =(int8_t) fetch8();
    PC+=offset;
 }
-void CPU::op_branchZeroOrNot() {
+
+
+void CPU::op_BNE() {
+   int8_t offset = (int8_t)fetch8();
+   if (!getFlag(FLAG_Z)) {
+      PC += offset;
+   }
+}
+void CPU::op_BEQ() {
    int8_t offset = (int8_t)fetch8();
    if (getFlag(FLAG_Z)) {
-      PC += (uint16_t) offset;
+      PC += offset;
    }
 }
 void CPU::op_BCC() {
@@ -144,6 +155,19 @@ void CPU::op_BCC() {
       PC += offset;
    }
 }
+void CPU::op_BVC() {
+   int8_t offset = (int8_t)fetch8();
+   if (getFlag(FLAG_V)) {
+      PC += offset;
+   }
+}
+void CPU::op_BVS() {
+   int8_t offset = (int8_t)fetch8();
+   if (!getFlag(FLAG_V)) {
+      PC += offset;
+   }
+}
+
 void CPU::op_BCS() {
    int8_t offset = (int8_t)fetch8();
    if (getFlag(FLAG_C)) {
@@ -169,7 +193,7 @@ void CPU::op_REP() {
    uint8_t mask = fetch8();
    uint16_t oldP = P;
    P = P & ~mask;
-   if (getFlag(emulation)){
+   if (emulation){
       P |= FLAG_M;
       P |= FLAG_X;
    }
@@ -179,8 +203,71 @@ void CPU::op_SEP() {
    uint8_t mask2 = fetch8();
    uint16_t oldPSEP = P;
    P |= mask2;
-   if (getFlag(emulation)) { P |= FLAG_M | FLAG_X; }
+   if (emulation) { P |= FLAG_M | FLAG_X; }
    applyWidthSideEffects(oldPSEP);
+}
+
+
+// push/pull ops
+void CPU::op_PHA() {
+   if (!getFlag(FLAG_M)) {
+      push16(A);
+   }
+   else {
+      push8(A);
+   }
+
+}
+void CPU::op_PHX() {
+   if (!getFlag(FLAG_X)) {
+      push16(X);
+   }
+   else {
+      push8(X);
+   }
+}
+void CPU::op_PHY() {
+   if (!getFlag(FLAG_X)) {
+      push16(Y);
+   }
+   else {
+      push8(Y);
+   }
+}
+
+
+void CPU::op_PLA() {
+   if (accumulatoris8()) {
+      uint8_t value = pop8();
+      A = (A & 0xFF00) | value;
+      setZN(value, 8);
+   } else {
+      uint16_t value = pop16();
+      A = value;
+      setZN(value, 16);
+   }
+}
+void CPU::op_PLX() {
+   if (indexis8()) {
+      uint8_t value = pop8();
+      X = (X & 0xFF00) | value;
+      setZN(value, 8);
+   } else {
+      uint16_t value = pop16();
+      X = value;
+      setZN(value, 16);
+   }
+}
+void CPU::op_PLY() {
+   if (indexis8()) {
+      uint8_t value = pop8();
+      Y = (Y & 0xFF00) | value;
+      setZN(value, 8);
+   } else {
+      uint16_t value = pop16();
+      Y = value;
+      setZN(value, 16);
+   }
 }
 
 

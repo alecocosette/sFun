@@ -61,6 +61,9 @@ struct CPU {
     typedef void(CPU::*OpcodeHandler)();
  OpcodeHandler opcodeArray[256];
  void initOpcodeArray();
+
+    void op_PLY();
+
 void unimplemented_op();
  void op_NOP();
  void LDA(uint32_t val);
@@ -78,9 +81,25 @@ void unimplemented_op();
 
     void op_BRA();
 
+    void op_BNE();
+
     void op_branchZeroOrNot();
 
     void op_BCC();
+
+    void op_BVC();
+
+    void op_BVS();
+
+    void op_PHA();
+
+    void op_PHX();
+
+    void op_PHY();
+
+    void op_PLA();
+
+    void op_PLX();
 
     void op_BCS();
 
