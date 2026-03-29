@@ -131,6 +131,14 @@ void CPU::op_RTS() {
    PC = returnAdd + 1;
 
 }
+void CPU::op_RTL() {
+   uint8_t low = pop8();
+   uint8_t high = pop8();
+   uint16_t returnAdd = high << 8 | low;
+   PC = returnAdd + 1;
+   PB = pop8();
+
+}
 void CPU::op_BRA() {
    int8_t offset =(int8_t) fetch8();
    PC+=offset;

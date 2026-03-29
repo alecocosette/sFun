@@ -79,6 +79,8 @@ void unimplemented_op();
 
     void op_RTS();
 
+    void op_RTL();
+
     void op_BRA();
 
     void op_BNE();
