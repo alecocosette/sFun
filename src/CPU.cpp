@@ -279,6 +279,41 @@ void CPU::op_PLY() {
 }
 
 
+
+
+
+
+
+// ADDRESSING MODES
+
+uint16_t CPU::addr_absolute() {
+
+   //change whenever JMP or JSR
+
+   uint16_t abs = fetch16();
+   return (DB << 16) | abs;
+}
+
+uint16_t CPU::addr_absolute_x() {
+
+   //change whenever JMP or JSR
+
+   uint16_t abs = fetch16();
+   return (DB << 16) | abs + X;
+}
+uint16_t CPU::addr_absolute_y() {
+
+   //change whenever JMP or JSR
+
+   uint16_t abs = fetch16();
+   return (DB << 16) | abs + Y;
+}
+
+
+
+
+
+
 void CPU::unimplemented_op() {
    std::cout<<"havent done twin"<< std::endl;
 }

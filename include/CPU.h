@@ -64,7 +64,13 @@ struct CPU {
 
     void op_PLY();
 
-void unimplemented_op();
+    uint16_t addr_absolute();
+
+    uint16_t addr_absolute_x();
+
+    uint16_t addr_absolute_y();
+
+    void unimplemented_op();
  void op_NOP();
  void LDA(uint32_t val);
  void op_LDA_imm();
@@ -84,8 +90,6 @@ void unimplemented_op();
     void op_BRA();
 
     void op_BNE();
-
-    void op_branchZeroOrNot();
 
     void op_BCC();
 
