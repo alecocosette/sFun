@@ -308,9 +308,28 @@ uint16_t CPU::addr_absolute_y() {
    uint16_t abs = fetch16();
    return (DB << 16) | abs + Y;
 }
+uint32_t CPU::addr_dp() {
+   uint8_t offset = fetch8();
+   if (DP & 0x00FF == 0) {
+      return offset;
+   }
+   return (DP + offset) & 0xFF;
+}
 
+uint32_t CPU::addr_dp_x() {
+   uint8_t offset = fetch8();
 
+   uint16_t index = indexis8()
+       ? (X & 0x00FF)
+       : X;
 
+   return (DP + offset + index) & 0xFFFF;
+}
+uint32_t CPU::addr_dp_y() {
+   uint8_t offset = fetch8();
+   uint16_t index = indexis8() ? (Y & 0x00FF) : Y;
+   return (DP + offset + index) & 0xFFFF;
+}
 
 
 

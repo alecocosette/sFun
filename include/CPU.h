@@ -70,6 +70,12 @@ struct CPU {
 
     uint16_t addr_absolute_y();
 
+    uint32_t addr_dp();
+
+    uint32_t addr_dp_x();
+
+    uint32_t addr_dp_y();
+
     void unimplemented_op();
  void op_NOP();
  void LDA(uint32_t val);
