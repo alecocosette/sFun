@@ -64,11 +64,15 @@ struct CPU {
 
     void op_PLY();
 
-    uint16_t addr_absolute();
+    void op_STA_dp();
 
-    uint16_t addr_absolute_x();
+    void op_TAX();
 
-    uint16_t addr_absolute_y();
+    uint32_t addr_absolute();
+
+    uint32_t addr_absolute_x();
+
+    uint32_t addr_absolute_y();
 
     uint32_t addr_dp();
 
@@ -82,6 +86,8 @@ struct CPU {
  void op_LDA_imm();
 
     void op_LDA_dp();
+
+    void op_LDX_imm();
 
     void op_JSR_abs();
 

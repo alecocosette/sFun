@@ -106,6 +106,17 @@ void CPU::op_LDA_dp() {
        : memory->read16(addr);
    LDA(value);
 }
+void CPU::op_LDX_imm() {
+   if (indexis8()) {
+      uint8_t value = fetch8();
+      X = (X & 0xFF00) | value;
+      setZN(value, 8);
+   } else {
+      uint16_t value = fetch16();
+      X = value;
+      setZN(value, 16);
+   }
+}
 void CPU::op_JSR_abs() {
    uint16_t adress = fetch16();
    uint16_t returnAdd = PC - 1;
@@ -165,13 +176,13 @@ void CPU::op_BCC() {
 }
 void CPU::op_BVC() {
    int8_t offset = (int8_t)fetch8();
-   if (getFlag(FLAG_V)) {
+   if (!getFlag(FLAG_V)) {
       PC += offset;
    }
 }
 void CPU::op_BVS() {
    int8_t offset = (int8_t)fetch8();
-   if (!getFlag(FLAG_V)) {
+   if (getFlag(FLAG_V)) {
       PC += offset;
    }
 }
@@ -278,7 +289,24 @@ void CPU::op_PLY() {
    }
 }
 
+void CPU::op_STA_dp() {
+   uint32_t addr = addr_dp();
 
+   if (accumulatoris8()) {
+      memory->write8(addr, A & 0xFF);
+   } else {
+      memory->write16(addr, A & 0xFFFF);
+   }
+}
+void CPU::op_TAX() {
+   if (indexis8()) {
+      X = (X & 0xFF00) | (A & 0x00FF);
+      setZN(X & 0xFF, 8);
+   } else {
+      X = A;
+      setZN(X, 16);
+   }
+}
 
 
 
@@ -286,7 +314,7 @@ void CPU::op_PLY() {
 
 // ADDRESSING MODES
 
-uint16_t CPU::addr_absolute() {
+uint32_t CPU::addr_absolute() {
 
    //change whenever JMP or JSR
 
@@ -294,26 +322,26 @@ uint16_t CPU::addr_absolute() {
    return (DB << 16) | abs;
 }
 
-uint16_t CPU::addr_absolute_x() {
+uint32_t CPU::addr_absolute_x() {
 
    //change whenever JMP or JSR
 
    uint16_t abs = fetch16();
-   return (DB << 16) | abs + X;
+   return (DB << 16) | ((abs + X) & 0xFFFF);
 }
-uint16_t CPU::addr_absolute_y() {
+uint32_t CPU::addr_absolute_y() {
 
    //change whenever JMP or JSR
 
    uint16_t abs = fetch16();
-   return (DB << 16) | abs + Y;
+   return (DB << 16) | ((abs + Y) & 0xFFFF);
 }
 uint32_t CPU::addr_dp() {
    uint8_t offset = fetch8();
-   if (DP & 0x00FF == 0) {
+   if ((DP & 0x00FF) == 0) {
       return offset;
    }
-   return (DP + offset) & 0xFF;
+   return (DP + offset) & 0xFFFF;
 }
 
 uint32_t CPU::addr_dp_x() {

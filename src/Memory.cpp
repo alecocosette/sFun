@@ -59,3 +59,8 @@ void Memory::write8(uint32_t address, uint8_t value) {
     wram[address & 0x1FFFF] = value;
   }
 }
+void Memory::write16(uint32_t address, uint16_t value) {
+  if ((address & 0xFF0000) == 0x7E0000 || (address & 0xFF0000) == 0x7F0000) {
+    wram[address & 0x1FFFF] = value;
+  }
+}

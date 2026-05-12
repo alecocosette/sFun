@@ -21,6 +21,8 @@ struct Memory {
   void write8(uint32_t address, uint8_t value);
 
   uint16_t read16(uint32_t addr);
+
+  void write16(uint32_t addr, uint16_t i);
 };
 
 
