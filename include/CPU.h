@@ -66,6 +66,10 @@ struct CPU {
 
     void op_STA_dp();
 
+    void op_STX_dp();
+
+    void op_STY_dp();
+
     void op_TAX();
 
     void op_STX();
@@ -79,6 +83,12 @@ struct CPU {
     void op_DEX();
 
     void op_DEY();
+
+    void CMP(uint32_t val);
+
+    void CPY(uint32_t val);
+
+    void CPX(uint32_t val);
 
     void op_CMP(uint32_t val);
 
@@ -101,6 +111,8 @@ struct CPU {
     void unimplemented_op();
  void op_NOP();
  void LDA(uint32_t val);
+
+    void LDY(uint32_t value);
 
     void op_LDY(uint32_t value);
 

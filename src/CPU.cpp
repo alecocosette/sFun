@@ -83,7 +83,9 @@ CPU::CPU(Memory *mem):
 void CPU::op_NOP() {
    std::cout << "no ops" << std::endl;
 }
-//main lda call
+
+
+//HELPERS / ALU STUFF
 void CPU::LDA(uint32_t value) {
    if (accumulatoris8()) {
       A = (A & 0xFF00) | (value & 0xFF);
@@ -94,7 +96,7 @@ void CPU::LDA(uint32_t value) {
       setZN(A, 16);
    }
 }
-void CPU::op_LDY(uint32_t value) {
+void CPU::LDY(uint32_t value) {
    if (indexis8()) {
       Y = (Y & 0xFF00) | (value & 0xFF);
       setZN(Y & 0xFF, 8);
@@ -104,6 +106,52 @@ void CPU::op_LDY(uint32_t value) {
       setZN(Y, 16);
    }
 }
+void CPU::CMP(uint32_t val) {
+   if (accumulatoris8()) {
+      uint8_t mem = A & 0xFF;
+      uint8_t result = mem - (val & 0xFF);
+      setFlag(FLAG_C, mem >= (val & 0xFF));
+      setZN(result, 8);
+   }
+   else {
+      uint16_t mem = A & 0xFFFF;
+      uint16_t result = mem - (val & 0xFFFF);
+      setFlag(FLAG_C, result >= (val & 0xFFFF));
+      setZN(result, 16);
+   }
+}
+void CPU::CPY(uint32_t val) {
+   if (indexis8()) {
+      uint8_t mem = Y & 0xFF;
+      uint8_t result = mem - (val & 0xFF);
+      setFlag(FLAG_C, mem >= (val & 0xFF));
+      setZN(result, 8);
+   }
+   else {
+      uint16_t mem = Y & 0xFFFF;
+      uint8_t result = mem - (val & 0xFFFF);
+      setFlag(FLAG_C, result >= (val & 0xFFFF));
+      setZN(result, 16);
+   }
+}
+void CPU::CPX(uint32_t val) {
+   if (indexis8()) {
+      uint8_t mem = X & 0xFF;
+      uint8_t result = mem - (val & 0xFF);
+      setFlag(FLAG_C, mem >= (val & 0xFF));
+      setZN(result, 8);
+   }
+   else {
+      uint16_t mem = X & 0xFFFF;
+      uint8_t result = mem - (val & 0xFFFF);
+      setFlag(FLAG_C, result >= (val & 0xFFFF));
+      setZN(result, 16);
+   }
+}
+
+
+
+// OPCODES
 void CPU::op_LDA_imm() {
    uint32_t value = fetchAccumulator();
    LDA(value);
@@ -309,6 +357,24 @@ void CPU::op_STA_dp() {
       memory->write16(addr, A & 0xFFFF);
    }
 }
+void CPU::op_STX_dp() {
+   uint32_t addr = addr_dp();
+   if (indexis8()) {
+      memory->write8(addr, X & 0xFF);
+   }
+   else {
+      memory->write16(addr, X & 0xFFFF);
+   }
+}
+void CPU::op_STY_dp() {
+   uint32_t addr = addr_dp();
+   if (indexis8()) {
+      memory->write8(addr, Y & 0xFF);
+   }
+   else {
+      memory->write16(addr, Y & 0xFFFF);
+   }
+}
 void CPU::op_TAX() {
    if (indexis8()) {
       X = (X & 0xFF00) | (A & 0x00FF);
@@ -319,18 +385,7 @@ void CPU::op_TAX() {
    }
 }
 
-void CPU::op_STX() {
-   if (indexis8()) {
-      X = (X & 0xFF00) | (A & 0x00FF);
-   }
-   setZN(X & 0xFF, 16);
-}
-void CPU::op_STY() {
-   if (indexis8()) {
-      Y = (Y & 0xFF00) | (A & 0x00FF);
-   }
-   setZN(Y & 0xFF, 16);
-}
+
 void CPU::op_INX() {
    if (indexis8()) {
       uint8_t value = (X & 0xFF) + 1;
@@ -373,53 +428,14 @@ void CPU::op_DEY() {
       setZN(value, 8);
    }
    else {
-      Y = (Y + 1) & 0xFFFF;
+      Y = (Y - 1) & 0xFFFF;
       setZN(Y, 16);
    }
 }
-void CPU::op_CMP(uint32_t val) {
-   if (accumulatoris8()) {
-      uint8_t mem = A & 0xFF;
-      uint8_t result = mem - (val & 0xFF);
-      setFlag(FLAG_C, mem >= (val & 0xFF));
-      setZN(result, 8);
-   }
-   else {
-      uint16_t mem = A & 0xFFFF;
-      setFlag(FLAG_C, mem >= (val & 0xFFFF));
-      setZN(mem, 16);
-   }
-}
-void CPU::op_CPY(uint32_t val) {
-   if (indexis8()) {
-      uint8_t mem = Y & 0xFF;
-      uint8_t result = mem + (val & 0xFF);
-      setFlag(FLAG_C, mem >= (val & 0xFF));
-      setZN(result, 8);
-   }
-   else {
-      uint16_t mem = Y & 0xFFFF;
-      setFlag(FLAG_C, mem >= (val & 0xFFFF));
-      setZN(mem, 16);
-   }
-}
-void CPU::op_CPX(uint32_t val) {
-   if (indexis8()) {
-      uint8_t mem = X & 0xFF;
-      uint8_t result = mem + (val & 0xFF);
-      setFlag(FLAG_C, mem >= (val & 0xFF));
-      setZN(result, 8);
-   }
-   else {
-      uint16_t mem = X & 0xFFFF;
-      setFlag(FLAG_C, mem >= (val & 0xFFFF));
-      setZN(mem, 16);
-   }
-}
+
 
 
 // ADDRESSING MODES
-
 uint32_t CPU::addr_absolute() {
 
    //change whenever JMP or JSR
@@ -444,9 +460,7 @@ uint32_t CPU::addr_absolute_y() {
 }
 uint32_t CPU::addr_dp() {
    uint8_t offset = fetch8();
-   if ((DP & 0x00FF) == 0) {
-      return offset;
-   }
+
    return (DP + offset) & 0xFFFF;
 }
 
