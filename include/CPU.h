@@ -68,6 +68,24 @@ struct CPU {
 
     void op_TAX();
 
+    void op_STX();
+
+    void op_STY();
+
+    void op_INX();
+
+    void op_INY();
+
+    void op_DEX();
+
+    void op_DEY();
+
+    void op_CMP(uint32_t val);
+
+    void op_CPY(uint32_t);
+
+    void op_CPX(uint32_t val);
+
     uint32_t addr_absolute();
 
     uint32_t addr_absolute_x();
@@ -83,7 +101,10 @@ struct CPU {
     void unimplemented_op();
  void op_NOP();
  void LDA(uint32_t val);
- void op_LDA_imm();
+
+    void op_LDY(uint32_t value);
+
+    void op_LDA_imm();
 
     void op_LDA_dp();
 

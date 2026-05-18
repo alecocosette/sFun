@@ -94,6 +94,16 @@ void CPU::LDA(uint32_t value) {
       setZN(A, 16);
    }
 }
+void CPU::op_LDY(uint32_t value) {
+   if (indexis8()) {
+      Y = (Y & 0xFF00) | (value & 0xFF);
+      setZN(Y & 0xFF, 8);
+   }
+   else {
+      Y = value & 0xFFFF;
+      setZN(Y, 16);
+   }
+}
 void CPU::op_LDA_imm() {
    uint32_t value = fetchAccumulator();
    LDA(value);
@@ -117,6 +127,7 @@ void CPU::op_LDX_imm() {
       setZN(value, 16);
    }
 }
+
 void CPU::op_JSR_abs() {
    uint16_t adress = fetch16();
    uint16_t returnAdd = PC - 1;
@@ -308,8 +319,103 @@ void CPU::op_TAX() {
    }
 }
 
+void CPU::op_STX() {
+   if (indexis8()) {
+      X = (X & 0xFF00) | (A & 0x00FF);
+   }
+   setZN(X & 0xFF, 16);
+}
+void CPU::op_STY() {
+   if (indexis8()) {
+      Y = (Y & 0xFF00) | (A & 0x00FF);
+   }
+   setZN(Y & 0xFF, 16);
+}
+void CPU::op_INX() {
+   if (indexis8()) {
+      uint8_t value = (X & 0xFF) + 1;
 
+      X = (X & 0xFF00) | value;
 
+      setZN(value, 8);
+   } else {
+      X = (X + 1) & 0xFFFF;
+
+      setZN(X, 16);
+   }
+}
+void CPU::op_INY() {
+   if (indexis8()) {
+      uint8_t value = (Y & 0xFF) + 1;
+      Y = (Y & 0xFF00) | value;
+      setZN(value, 8);
+   }
+   else {
+      Y = (Y + 1) & 0xFFFF;
+      setZN(Y, 16);
+   }
+}
+void CPU::op_DEX(){
+   if (indexis8()) {
+      uint8_t value = (X & 0xFF) - 1;
+      X = (X & 0xFF00) | value;
+      setZN(value, 8);
+   }
+   else {
+      X = (X - 1) & 0xFFFF;
+      setZN(X, 16);
+   }
+}
+void CPU::op_DEY() {
+   if (indexis8()) {
+      uint8_t value = (Y & 0xFF) - 1;
+      Y = (Y & 0xFF00) | value;
+      setZN(value, 8);
+   }
+   else {
+      Y = (Y + 1) & 0xFFFF;
+      setZN(Y, 16);
+   }
+}
+void CPU::op_CMP(uint32_t val) {
+   if (accumulatoris8()) {
+      uint8_t mem = A & 0xFF;
+      uint8_t result = mem - (val & 0xFF);
+      setFlag(FLAG_C, mem >= (val & 0xFF));
+      setZN(result, 8);
+   }
+   else {
+      uint16_t mem = A & 0xFFFF;
+      setFlag(FLAG_C, mem >= (val & 0xFFFF));
+      setZN(mem, 16);
+   }
+}
+void CPU::op_CPY(uint32_t val) {
+   if (indexis8()) {
+      uint8_t mem = Y & 0xFF;
+      uint8_t result = mem + (val & 0xFF);
+      setFlag(FLAG_C, mem >= (val & 0xFF));
+      setZN(result, 8);
+   }
+   else {
+      uint16_t mem = Y & 0xFFFF;
+      setFlag(FLAG_C, mem >= (val & 0xFFFF));
+      setZN(mem, 16);
+   }
+}
+void CPU::op_CPX(uint32_t val) {
+   if (indexis8()) {
+      uint8_t mem = X & 0xFF;
+      uint8_t result = mem + (val & 0xFF);
+      setFlag(FLAG_C, mem >= (val & 0xFF));
+      setZN(result, 8);
+   }
+   else {
+      uint16_t mem = X & 0xFFFF;
+      setFlag(FLAG_C, mem >= (val & 0xFFFF));
+      setZN(mem, 16);
+   }
+}
 
 
 // ADDRESSING MODES
