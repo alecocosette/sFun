@@ -53,7 +53,8 @@ struct CPU {
  //useful feature from snes9x
  void setZN(uint32_t value, int width);
     uint32_t fetchAccumulator();
-    void fetchIndex();
+
+    uint32_t fetchIndex();
    void emulationState();
     bool getFlag(uint8_t flag) const;
     void setFlag(uint8_t flag, bool value);
@@ -83,6 +84,12 @@ struct CPU {
     void op_DEX();
 
     void op_DEY();
+
+    void op_CMP_IMM();
+
+    void op_CPX_imm();
+
+    void op_CPY_imm();
 
     void CMP(uint32_t val);
 

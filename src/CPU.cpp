@@ -43,7 +43,8 @@ void CPU::emulationState() {
    P = P | FLAG_M | FLAG_X;
    SP = 0x0100 | (SP & 0x00FF);
 }
-void CPU::fetchIndex() {
+
+uint32_t CPU::fetchIndex() {
    if (indexis8()) {
       fetch8();
    }
@@ -78,11 +79,7 @@ CPU::CPU(Memory *mem):
 {
 }
 
-// OPCODES
-//no ops
-void CPU::op_NOP() {
-   std::cout << "no ops" << std::endl;
-}
+
 
 
 //HELPERS / ALU STUFF
@@ -152,6 +149,10 @@ void CPU::CPX(uint32_t val) {
 
 
 // OPCODES
+//no ops
+void CPU::op_NOP() {
+   std::cout << "no ops" << std::endl;
+}
 void CPU::op_LDA_imm() {
    uint32_t value = fetchAccumulator();
    LDA(value);
@@ -432,6 +433,23 @@ void CPU::op_DEY() {
       setZN(Y, 16);
    }
 }
+void CPU::op_CMP_IMM() {
+   uint32_t value = fetchAccumulator();
+   CMP(value);
+}
+
+void CPU::op_CPX_imm() {
+   uint32_t value = fetchIndex();
+   CPX(value);
+}
+
+void CPU::op_CPY_imm() {
+   uint32_t value = fetchIndex();
+   CPY(value);
+}
+
+
+
 
 
 
