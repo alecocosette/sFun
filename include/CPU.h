@@ -73,6 +73,28 @@ struct CPU {
 
     void op_TAX();
 
+    void op_TAY();
+
+    void op_TXA();
+
+    void op_TYA();
+
+    void op_TXY();
+
+    void op_TYX();
+
+    void op_TCS();
+
+    void op_TCD();
+
+    void op_TSC();
+
+    void op_TDC();
+
+    void op_TSX();
+
+    void op_TXS();
+
     void op_STX();
 
     void op_STY();
