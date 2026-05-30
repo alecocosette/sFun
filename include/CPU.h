@@ -95,6 +95,8 @@ struct CPU {
 
     void op_TXS();
 
+    void op_INC_a();
+
     void op_STX();
 
     void op_STY();
@@ -102,6 +104,8 @@ struct CPU {
     void op_INX();
 
     void op_INY();
+
+    void op_DEC_a();
 
     void op_DEX();
 
@@ -113,17 +117,43 @@ struct CPU {
 
     void op_CPY_imm();
 
+    void op_CLC();
+
+    void op_SEC();
+
     void CMP(uint32_t val);
 
     void CPY(uint32_t val);
 
     void CPX(uint32_t val);
 
+    void ADC(uint32_t val);
+
+    void SBC(uint32_t val);
+
+    void AND(uint32_t val);
+
+    void ORA(uint32_t val);
+
+    void EOR(uint32_t val);
+
     void op_CMP(uint32_t val);
 
     void op_CPY(uint32_t);
 
     void op_CPX(uint32_t val);
+
+    void op_CLV();
+
+    void op_ADC_imm();
+
+    void op_SBC_imm();
+
+    void op_AND_imm();
+
+    void op_ORA_imm();
+
+    void op_EOR_imm();
 
     uint32_t addr_absolute();
 
