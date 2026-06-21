@@ -152,6 +152,54 @@ src/CPU.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/src/CPU.cpp.s
 .PHONY : src/CPU.cpp.s
 
+src/CPUfetch.obj: src/CPUfetch.cpp.obj
+.PHONY : src/CPUfetch.obj
+
+# target to build an object file
+src/CPUfetch.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/src/CPUfetch.cpp.obj
+.PHONY : src/CPUfetch.cpp.obj
+
+src/CPUfetch.i: src/CPUfetch.cpp.i
+.PHONY : src/CPUfetch.i
+
+# target to preprocess a source file
+src/CPUfetch.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/src/CPUfetch.cpp.i
+.PHONY : src/CPUfetch.cpp.i
+
+src/CPUfetch.s: src/CPUfetch.cpp.s
+.PHONY : src/CPUfetch.s
+
+# target to generate assembly for a file
+src/CPUfetch.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/src/CPUfetch.cpp.s
+.PHONY : src/CPUfetch.cpp.s
+
+src/CPUflags.obj: src/CPUflags.cpp.obj
+.PHONY : src/CPUflags.obj
+
+# target to build an object file
+src/CPUflags.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/src/CPUflags.cpp.obj
+.PHONY : src/CPUflags.cpp.obj
+
+src/CPUflags.i: src/CPUflags.cpp.i
+.PHONY : src/CPUflags.i
+
+# target to preprocess a source file
+src/CPUflags.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/src/CPUflags.cpp.i
+.PHONY : src/CPUflags.cpp.i
+
+src/CPUflags.s: src/CPUflags.cpp.s
+.PHONY : src/CPUflags.s
+
+# target to generate assembly for a file
+src/CPUflags.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/src/CPUflags.cpp.s
+.PHONY : src/CPUflags.cpp.s
+
 src/Memory.obj: src/Memory.cpp.obj
 .PHONY : src/Memory.obj
 
@@ -236,6 +284,12 @@ help:
 	@echo ... src/CPU.obj
 	@echo ... src/CPU.i
 	@echo ... src/CPU.s
+	@echo ... src/CPUfetch.obj
+	@echo ... src/CPUfetch.i
+	@echo ... src/CPUfetch.s
+	@echo ... src/CPUflags.obj
+	@echo ... src/CPUflags.i
+	@echo ... src/CPUflags.s
 	@echo ... src/Memory.obj
 	@echo ... src/Memory.i
 	@echo ... src/Memory.s

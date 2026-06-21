@@ -145,6 +145,10 @@ struct CPU {
 
     void op_CLV();
 
+    void op_CLI();
+
+    void op_SEI();
+
     void op_ADC_imm();
 
     void op_SBC_imm();

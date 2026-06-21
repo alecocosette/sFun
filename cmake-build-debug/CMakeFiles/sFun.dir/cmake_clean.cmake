@@ -1,6 +1,10 @@
 file(REMOVE_RECURSE
   "CMakeFiles/sFun.dir/src/CPU.cpp.obj"
   "CMakeFiles/sFun.dir/src/CPU.cpp.obj.d"
+  "CMakeFiles/sFun.dir/src/CPUfetch.cpp.obj"
+  "CMakeFiles/sFun.dir/src/CPUfetch.cpp.obj.d"
+  "CMakeFiles/sFun.dir/src/CPUflags.cpp.obj"
+  "CMakeFiles/sFun.dir/src/CPUflags.cpp.obj.d"
   "CMakeFiles/sFun.dir/src/Memory.cpp.obj"
   "CMakeFiles/sFun.dir/src/Memory.cpp.obj.d"
   "CMakeFiles/sFun.dir/src/cart.cpp.obj"
