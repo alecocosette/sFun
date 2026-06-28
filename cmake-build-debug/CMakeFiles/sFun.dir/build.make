@@ -158,6 +158,111 @@ CMakeFiles/sFun.dir/src/CPUfetch.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/sFun.dir/src/CPUfetch.cpp.s"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\yeims\sFun\src\CPUfetch.cpp -o CMakeFiles\sFun.dir\src\CPUfetch.cpp.s
 
+CMakeFiles/sFun.dir/src/CPUstack.cpp.obj: CMakeFiles/sFun.dir/flags.make
+CMakeFiles/sFun.dir/src/CPUstack.cpp.obj: CMakeFiles/sFun.dir/includes_CXX.rsp
+CMakeFiles/sFun.dir/src/CPUstack.cpp.obj: C:/Users/yeims/sFun/src/CPUstack.cpp
+CMakeFiles/sFun.dir/src/CPUstack.cpp.obj: CMakeFiles/sFun.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\yeims\sFun\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/sFun.dir/src/CPUstack.cpp.obj"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sFun.dir/src/CPUstack.cpp.obj -MF CMakeFiles\sFun.dir\src\CPUstack.cpp.obj.d -o CMakeFiles\sFun.dir\src\CPUstack.cpp.obj -c C:\Users\yeims\sFun\src\CPUstack.cpp
+
+CMakeFiles/sFun.dir/src/CPUstack.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/sFun.dir/src/CPUstack.cpp.i"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\yeims\sFun\src\CPUstack.cpp > CMakeFiles\sFun.dir\src\CPUstack.cpp.i
+
+CMakeFiles/sFun.dir/src/CPUstack.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/sFun.dir/src/CPUstack.cpp.s"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\yeims\sFun\src\CPUstack.cpp -o CMakeFiles\sFun.dir\src\CPUstack.cpp.s
+
+CMakeFiles/sFun.dir/src/CPUBranch.cpp.obj: CMakeFiles/sFun.dir/flags.make
+CMakeFiles/sFun.dir/src/CPUBranch.cpp.obj: CMakeFiles/sFun.dir/includes_CXX.rsp
+CMakeFiles/sFun.dir/src/CPUBranch.cpp.obj: C:/Users/yeims/sFun/src/CPUBranch.cpp
+CMakeFiles/sFun.dir/src/CPUBranch.cpp.obj: CMakeFiles/sFun.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\yeims\sFun\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/sFun.dir/src/CPUBranch.cpp.obj"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sFun.dir/src/CPUBranch.cpp.obj -MF CMakeFiles\sFun.dir\src\CPUBranch.cpp.obj.d -o CMakeFiles\sFun.dir\src\CPUBranch.cpp.obj -c C:\Users\yeims\sFun\src\CPUBranch.cpp
+
+CMakeFiles/sFun.dir/src/CPUBranch.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/sFun.dir/src/CPUBranch.cpp.i"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\yeims\sFun\src\CPUBranch.cpp > CMakeFiles\sFun.dir\src\CPUBranch.cpp.i
+
+CMakeFiles/sFun.dir/src/CPUBranch.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/sFun.dir/src/CPUBranch.cpp.s"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\yeims\sFun\src\CPUBranch.cpp -o CMakeFiles\sFun.dir\src\CPUBranch.cpp.s
+
+CMakeFiles/sFun.dir/src/CPUjump.cpp.obj: CMakeFiles/sFun.dir/flags.make
+CMakeFiles/sFun.dir/src/CPUjump.cpp.obj: CMakeFiles/sFun.dir/includes_CXX.rsp
+CMakeFiles/sFun.dir/src/CPUjump.cpp.obj: C:/Users/yeims/sFun/src/CPUjump.cpp
+CMakeFiles/sFun.dir/src/CPUjump.cpp.obj: CMakeFiles/sFun.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\yeims\sFun\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/sFun.dir/src/CPUjump.cpp.obj"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sFun.dir/src/CPUjump.cpp.obj -MF CMakeFiles\sFun.dir\src\CPUjump.cpp.obj.d -o CMakeFiles\sFun.dir\src\CPUjump.cpp.obj -c C:\Users\yeims\sFun\src\CPUjump.cpp
+
+CMakeFiles/sFun.dir/src/CPUjump.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/sFun.dir/src/CPUjump.cpp.i"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\yeims\sFun\src\CPUjump.cpp > CMakeFiles\sFun.dir\src\CPUjump.cpp.i
+
+CMakeFiles/sFun.dir/src/CPUjump.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/sFun.dir/src/CPUjump.cpp.s"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\yeims\sFun\src\CPUjump.cpp -o CMakeFiles\sFun.dir\src\CPUjump.cpp.s
+
+CMakeFiles/sFun.dir/src/CPUtransfer.cpp.obj: CMakeFiles/sFun.dir/flags.make
+CMakeFiles/sFun.dir/src/CPUtransfer.cpp.obj: CMakeFiles/sFun.dir/includes_CXX.rsp
+CMakeFiles/sFun.dir/src/CPUtransfer.cpp.obj: C:/Users/yeims/sFun/src/CPUtransfer.cpp
+CMakeFiles/sFun.dir/src/CPUtransfer.cpp.obj: CMakeFiles/sFun.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\yeims\sFun\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/sFun.dir/src/CPUtransfer.cpp.obj"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sFun.dir/src/CPUtransfer.cpp.obj -MF CMakeFiles\sFun.dir\src\CPUtransfer.cpp.obj.d -o CMakeFiles\sFun.dir\src\CPUtransfer.cpp.obj -c C:\Users\yeims\sFun\src\CPUtransfer.cpp
+
+CMakeFiles/sFun.dir/src/CPUtransfer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/sFun.dir/src/CPUtransfer.cpp.i"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\yeims\sFun\src\CPUtransfer.cpp > CMakeFiles\sFun.dir\src\CPUtransfer.cpp.i
+
+CMakeFiles/sFun.dir/src/CPUtransfer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/sFun.dir/src/CPUtransfer.cpp.s"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\yeims\sFun\src\CPUtransfer.cpp -o CMakeFiles\sFun.dir\src\CPUtransfer.cpp.s
+
+CMakeFiles/sFun.dir/src/CPUloadstore.cpp.obj: CMakeFiles/sFun.dir/flags.make
+CMakeFiles/sFun.dir/src/CPUloadstore.cpp.obj: CMakeFiles/sFun.dir/includes_CXX.rsp
+CMakeFiles/sFun.dir/src/CPUloadstore.cpp.obj: C:/Users/yeims/sFun/src/CPUloadstore.cpp
+CMakeFiles/sFun.dir/src/CPUloadstore.cpp.obj: CMakeFiles/sFun.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\yeims\sFun\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/sFun.dir/src/CPUloadstore.cpp.obj"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sFun.dir/src/CPUloadstore.cpp.obj -MF CMakeFiles\sFun.dir\src\CPUloadstore.cpp.obj.d -o CMakeFiles\sFun.dir\src\CPUloadstore.cpp.obj -c C:\Users\yeims\sFun\src\CPUloadstore.cpp
+
+CMakeFiles/sFun.dir/src/CPUloadstore.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/sFun.dir/src/CPUloadstore.cpp.i"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\yeims\sFun\src\CPUloadstore.cpp > CMakeFiles\sFun.dir\src\CPUloadstore.cpp.i
+
+CMakeFiles/sFun.dir/src/CPUloadstore.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/sFun.dir/src/CPUloadstore.cpp.s"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\yeims\sFun\src\CPUloadstore.cpp -o CMakeFiles\sFun.dir\src\CPUloadstore.cpp.s
+
+CMakeFiles/sFun.dir/src/CPUALU.cpp.obj: CMakeFiles/sFun.dir/flags.make
+CMakeFiles/sFun.dir/src/CPUALU.cpp.obj: CMakeFiles/sFun.dir/includes_CXX.rsp
+CMakeFiles/sFun.dir/src/CPUALU.cpp.obj: C:/Users/yeims/sFun/src/CPUALU.cpp
+CMakeFiles/sFun.dir/src/CPUALU.cpp.obj: CMakeFiles/sFun.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\yeims\sFun\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/sFun.dir/src/CPUALU.cpp.obj"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sFun.dir/src/CPUALU.cpp.obj -MF CMakeFiles\sFun.dir\src\CPUALU.cpp.obj.d -o CMakeFiles\sFun.dir\src\CPUALU.cpp.obj -c C:\Users\yeims\sFun\src\CPUALU.cpp
+
+CMakeFiles/sFun.dir/src/CPUALU.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/sFun.dir/src/CPUALU.cpp.i"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\yeims\sFun\src\CPUALU.cpp > CMakeFiles\sFun.dir\src\CPUALU.cpp.i
+
+CMakeFiles/sFun.dir/src/CPUALU.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/sFun.dir/src/CPUALU.cpp.s"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\yeims\sFun\src\CPUALU.cpp -o CMakeFiles\sFun.dir\src\CPUALU.cpp.s
+
+CMakeFiles/sFun.dir/src/CPUincrement.cpp.obj: CMakeFiles/sFun.dir/flags.make
+CMakeFiles/sFun.dir/src/CPUincrement.cpp.obj: CMakeFiles/sFun.dir/includes_CXX.rsp
+CMakeFiles/sFun.dir/src/CPUincrement.cpp.obj: C:/Users/yeims/sFun/src/CPUincrement.cpp
+CMakeFiles/sFun.dir/src/CPUincrement.cpp.obj: CMakeFiles/sFun.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\yeims\sFun\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/sFun.dir/src/CPUincrement.cpp.obj"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sFun.dir/src/CPUincrement.cpp.obj -MF CMakeFiles\sFun.dir\src\CPUincrement.cpp.obj.d -o CMakeFiles\sFun.dir\src\CPUincrement.cpp.obj -c C:\Users\yeims\sFun\src\CPUincrement.cpp
+
+CMakeFiles/sFun.dir/src/CPUincrement.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/sFun.dir/src/CPUincrement.cpp.i"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\yeims\sFun\src\CPUincrement.cpp > CMakeFiles\sFun.dir\src\CPUincrement.cpp.i
+
+CMakeFiles/sFun.dir/src/CPUincrement.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/sFun.dir/src/CPUincrement.cpp.s"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\yeims\sFun\src\CPUincrement.cpp -o CMakeFiles\sFun.dir\src\CPUincrement.cpp.s
+
 # Object files for target sFun
 sFun_OBJECTS = \
 "CMakeFiles/sFun.dir/src/CPU.cpp.obj" \
@@ -165,7 +270,14 @@ sFun_OBJECTS = \
 "CMakeFiles/sFun.dir/src/Memory.cpp.obj" \
 "CMakeFiles/sFun.dir/src/cart.cpp.obj" \
 "CMakeFiles/sFun.dir/src/CPUflags.cpp.obj" \
-"CMakeFiles/sFun.dir/src/CPUfetch.cpp.obj"
+"CMakeFiles/sFun.dir/src/CPUfetch.cpp.obj" \
+"CMakeFiles/sFun.dir/src/CPUstack.cpp.obj" \
+"CMakeFiles/sFun.dir/src/CPUBranch.cpp.obj" \
+"CMakeFiles/sFun.dir/src/CPUjump.cpp.obj" \
+"CMakeFiles/sFun.dir/src/CPUtransfer.cpp.obj" \
+"CMakeFiles/sFun.dir/src/CPUloadstore.cpp.obj" \
+"CMakeFiles/sFun.dir/src/CPUALU.cpp.obj" \
+"CMakeFiles/sFun.dir/src/CPUincrement.cpp.obj"
 
 # External object files for target sFun
 sFun_EXTERNAL_OBJECTS =
@@ -176,11 +288,18 @@ sFun.exe: CMakeFiles/sFun.dir/src/Memory.cpp.obj
 sFun.exe: CMakeFiles/sFun.dir/src/cart.cpp.obj
 sFun.exe: CMakeFiles/sFun.dir/src/CPUflags.cpp.obj
 sFun.exe: CMakeFiles/sFun.dir/src/CPUfetch.cpp.obj
+sFun.exe: CMakeFiles/sFun.dir/src/CPUstack.cpp.obj
+sFun.exe: CMakeFiles/sFun.dir/src/CPUBranch.cpp.obj
+sFun.exe: CMakeFiles/sFun.dir/src/CPUjump.cpp.obj
+sFun.exe: CMakeFiles/sFun.dir/src/CPUtransfer.cpp.obj
+sFun.exe: CMakeFiles/sFun.dir/src/CPUloadstore.cpp.obj
+sFun.exe: CMakeFiles/sFun.dir/src/CPUALU.cpp.obj
+sFun.exe: CMakeFiles/sFun.dir/src/CPUincrement.cpp.obj
 sFun.exe: CMakeFiles/sFun.dir/build.make
 sFun.exe: CMakeFiles/sFun.dir/linkLibs.rsp
 sFun.exe: CMakeFiles/sFun.dir/objects1.rsp
 sFun.exe: CMakeFiles/sFun.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\yeims\sFun\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable sFun.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\yeims\sFun\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable sFun.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\sFun.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

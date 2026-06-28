@@ -14,6 +14,13 @@ add_executable(sFun
         src/cart.cpp
         src/CPUflags.cpp
         src/CPUfetch.cpp
+        src/CPUstack.cpp
+        src/CPUBranch.cpp
+        src/CPUjump.cpp
+        src/CPUtransfer.cpp
+        src/CPUloadstore.cpp
+        src/CPUALU.cpp
+        src/CPUincrement.cpp
 
 )
 

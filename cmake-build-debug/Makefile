@@ -152,6 +152,54 @@ src/CPU.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/src/CPU.cpp.s
 .PHONY : src/CPU.cpp.s
 
+src/CPUALU.obj: src/CPUALU.cpp.obj
+.PHONY : src/CPUALU.obj
+
+# target to build an object file
+src/CPUALU.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/src/CPUALU.cpp.obj
+.PHONY : src/CPUALU.cpp.obj
+
+src/CPUALU.i: src/CPUALU.cpp.i
+.PHONY : src/CPUALU.i
+
+# target to preprocess a source file
+src/CPUALU.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/src/CPUALU.cpp.i
+.PHONY : src/CPUALU.cpp.i
+
+src/CPUALU.s: src/CPUALU.cpp.s
+.PHONY : src/CPUALU.s
+
+# target to generate assembly for a file
+src/CPUALU.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/src/CPUALU.cpp.s
+.PHONY : src/CPUALU.cpp.s
+
+src/CPUBranch.obj: src/CPUBranch.cpp.obj
+.PHONY : src/CPUBranch.obj
+
+# target to build an object file
+src/CPUBranch.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/src/CPUBranch.cpp.obj
+.PHONY : src/CPUBranch.cpp.obj
+
+src/CPUBranch.i: src/CPUBranch.cpp.i
+.PHONY : src/CPUBranch.i
+
+# target to preprocess a source file
+src/CPUBranch.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/src/CPUBranch.cpp.i
+.PHONY : src/CPUBranch.cpp.i
+
+src/CPUBranch.s: src/CPUBranch.cpp.s
+.PHONY : src/CPUBranch.s
+
+# target to generate assembly for a file
+src/CPUBranch.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/src/CPUBranch.cpp.s
+.PHONY : src/CPUBranch.cpp.s
+
 src/CPUfetch.obj: src/CPUfetch.cpp.obj
 .PHONY : src/CPUfetch.obj
 
@@ -199,6 +247,126 @@ src/CPUflags.s: src/CPUflags.cpp.s
 src/CPUflags.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/src/CPUflags.cpp.s
 .PHONY : src/CPUflags.cpp.s
+
+src/CPUincrement.obj: src/CPUincrement.cpp.obj
+.PHONY : src/CPUincrement.obj
+
+# target to build an object file
+src/CPUincrement.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/src/CPUincrement.cpp.obj
+.PHONY : src/CPUincrement.cpp.obj
+
+src/CPUincrement.i: src/CPUincrement.cpp.i
+.PHONY : src/CPUincrement.i
+
+# target to preprocess a source file
+src/CPUincrement.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/src/CPUincrement.cpp.i
+.PHONY : src/CPUincrement.cpp.i
+
+src/CPUincrement.s: src/CPUincrement.cpp.s
+.PHONY : src/CPUincrement.s
+
+# target to generate assembly for a file
+src/CPUincrement.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/src/CPUincrement.cpp.s
+.PHONY : src/CPUincrement.cpp.s
+
+src/CPUjump.obj: src/CPUjump.cpp.obj
+.PHONY : src/CPUjump.obj
+
+# target to build an object file
+src/CPUjump.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/src/CPUjump.cpp.obj
+.PHONY : src/CPUjump.cpp.obj
+
+src/CPUjump.i: src/CPUjump.cpp.i
+.PHONY : src/CPUjump.i
+
+# target to preprocess a source file
+src/CPUjump.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/src/CPUjump.cpp.i
+.PHONY : src/CPUjump.cpp.i
+
+src/CPUjump.s: src/CPUjump.cpp.s
+.PHONY : src/CPUjump.s
+
+# target to generate assembly for a file
+src/CPUjump.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/src/CPUjump.cpp.s
+.PHONY : src/CPUjump.cpp.s
+
+src/CPUloadstore.obj: src/CPUloadstore.cpp.obj
+.PHONY : src/CPUloadstore.obj
+
+# target to build an object file
+src/CPUloadstore.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/src/CPUloadstore.cpp.obj
+.PHONY : src/CPUloadstore.cpp.obj
+
+src/CPUloadstore.i: src/CPUloadstore.cpp.i
+.PHONY : src/CPUloadstore.i
+
+# target to preprocess a source file
+src/CPUloadstore.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/src/CPUloadstore.cpp.i
+.PHONY : src/CPUloadstore.cpp.i
+
+src/CPUloadstore.s: src/CPUloadstore.cpp.s
+.PHONY : src/CPUloadstore.s
+
+# target to generate assembly for a file
+src/CPUloadstore.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/src/CPUloadstore.cpp.s
+.PHONY : src/CPUloadstore.cpp.s
+
+src/CPUstack.obj: src/CPUstack.cpp.obj
+.PHONY : src/CPUstack.obj
+
+# target to build an object file
+src/CPUstack.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/src/CPUstack.cpp.obj
+.PHONY : src/CPUstack.cpp.obj
+
+src/CPUstack.i: src/CPUstack.cpp.i
+.PHONY : src/CPUstack.i
+
+# target to preprocess a source file
+src/CPUstack.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/src/CPUstack.cpp.i
+.PHONY : src/CPUstack.cpp.i
+
+src/CPUstack.s: src/CPUstack.cpp.s
+.PHONY : src/CPUstack.s
+
+# target to generate assembly for a file
+src/CPUstack.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/src/CPUstack.cpp.s
+.PHONY : src/CPUstack.cpp.s
+
+src/CPUtransfer.obj: src/CPUtransfer.cpp.obj
+.PHONY : src/CPUtransfer.obj
+
+# target to build an object file
+src/CPUtransfer.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/src/CPUtransfer.cpp.obj
+.PHONY : src/CPUtransfer.cpp.obj
+
+src/CPUtransfer.i: src/CPUtransfer.cpp.i
+.PHONY : src/CPUtransfer.i
+
+# target to preprocess a source file
+src/CPUtransfer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/src/CPUtransfer.cpp.i
+.PHONY : src/CPUtransfer.cpp.i
+
+src/CPUtransfer.s: src/CPUtransfer.cpp.s
+.PHONY : src/CPUtransfer.s
+
+# target to generate assembly for a file
+src/CPUtransfer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/src/CPUtransfer.cpp.s
+.PHONY : src/CPUtransfer.cpp.s
 
 src/Memory.obj: src/Memory.cpp.obj
 .PHONY : src/Memory.obj
@@ -284,12 +452,33 @@ help:
 	@echo ... src/CPU.obj
 	@echo ... src/CPU.i
 	@echo ... src/CPU.s
+	@echo ... src/CPUALU.obj
+	@echo ... src/CPUALU.i
+	@echo ... src/CPUALU.s
+	@echo ... src/CPUBranch.obj
+	@echo ... src/CPUBranch.i
+	@echo ... src/CPUBranch.s
 	@echo ... src/CPUfetch.obj
 	@echo ... src/CPUfetch.i
 	@echo ... src/CPUfetch.s
 	@echo ... src/CPUflags.obj
 	@echo ... src/CPUflags.i
 	@echo ... src/CPUflags.s
+	@echo ... src/CPUincrement.obj
+	@echo ... src/CPUincrement.i
+	@echo ... src/CPUincrement.s
+	@echo ... src/CPUjump.obj
+	@echo ... src/CPUjump.i
+	@echo ... src/CPUjump.s
+	@echo ... src/CPUloadstore.obj
+	@echo ... src/CPUloadstore.i
+	@echo ... src/CPUloadstore.s
+	@echo ... src/CPUstack.obj
+	@echo ... src/CPUstack.i
+	@echo ... src/CPUstack.s
+	@echo ... src/CPUtransfer.obj
+	@echo ... src/CPUtransfer.i
+	@echo ... src/CPUtransfer.s
 	@echo ... src/Memory.obj
 	@echo ... src/Memory.i
 	@echo ... src/Memory.s
