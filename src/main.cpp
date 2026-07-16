@@ -1,42 +1,80 @@
 #define SDL_MAIN_HANDLED
 #include <SDL2/SDL.h>
+
 #include "../include/CPU.h"
 #include "../include/Memory.h"
+
 #include <iostream>
+#include <vector>
+
 int main(int argc, char* argv[]) {
-    SDL_Init(SDL_INIT_VIDEO);
-    SDL_Window* window = SDL_CreateWindow("Emulator", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
-        620, 420, SDL_WINDOW_SHOWN);
+    // ----------------------------
+    // SDL Setup
+    // ----------------------------
+    if (SDL_Init(SDL_INIT_VIDEO) != 0) {
+        SDL_Log("SDL Init Error: %s", SDL_GetError());
+        return 1;
+    }
+
+    SDL_Window* window = SDL_CreateWindow(
+        "SNES Emulator",
+        SDL_WINDOWPOS_CENTERED,
+        SDL_WINDOWPOS_CENTERED,
+        620,
+        420,
+        SDL_WINDOW_SHOWN
+    );
+
     if (!window) {
-        SDL_Log("Could not create window: %s", SDL_GetError());
+        SDL_Log("Window Error: %s", SDL_GetError());
         SDL_Quit();
         return 1;
     }
+
+    // ----------------------------
+    // Emulator Setup
+    // ----------------------------
     Memory memory;
     CPU cpu(&memory);
-    std::vector<uint8_t> testROM = {
-        0xA9, 0x01, // LDA #$01
-        0xEA,       // NOP
-        0xEA,       // NOP
-        0x00        // BRK
+
+    // Test program
+    std::vector<uint8_t> program = {
+        0xA9, 0x42,     // LDA #$42
+        0xAA,           // TAX
+        0xE8,           // INX
+        0xCA,           // DEX
+        0xEA            // NOP
     };
-    memory.loadROM(testROM);
 
-
+    memory.loadROM(program);
 
     cpu.reset();
-    for (int i = 0; i < testROM.size(); i++) {
+
+    std::cout << "Beginning CPU test...\n";
+
+    // Execute every instruction
+    for (size_t i = 0; i < program.size(); i++) {
         cpu.step();
+        cpu.printState();      // Debug output after each instruction
     }
-    bool quit = false;
+
+    std::cout << "CPU test finished.\n";
+
+    // ----------------------------
+    // Keep window alive
+    // ----------------------------
+    bool running = true;
     SDL_Event event;
-    while (!quit) {
+
+    while (running) {
         while (SDL_PollEvent(&event)) {
-            if (event.type == SDL_QUIT) {
-                quit = true;
-            }
+            if (event.type == SDL_QUIT)
+                running = false;
         }
     }
+
+    SDL_DestroyWindow(window);
     SDL_Quit();
+
     return 0;
 }

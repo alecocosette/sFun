@@ -149,6 +149,8 @@ struct CPU {
 
     void op_SEI();
 
+    void printState();
+
     void op_ADC_imm();
 
     void op_SBC_imm();
