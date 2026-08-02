@@ -1,0 +1,108 @@
+[
+  {
+    "name": "LDA immediate #$42",
+    "opcode": "A9",
+    "operands": "42",
+    "initial": {
+      "pc": 0,
+      "a": 0,
+      "x": 0,
+      "y": 0,
+      "sp": 511,
+      "p": 52,
+      "db": 126,
+      "pb": 126,
+      "dp": 0
+    },
+    "expected": {
+      "pc": 2,
+      "a": 66,
+      "x": 0,
+      "y": 0,
+      "sp": 511,
+      "p": 52,
+      "db": 126,
+      "pb": 126,
+      "dp": 0
+    }
+  },
+  {
+    "name": "TAX - Transfer A to X",
+    "opcode": "AA",
+    "operands": "",
+    "initial": {
+      "pc": 0,
+      "a": 66,
+      "x": 0,
+      "p": 52
+    },
+    "expected": {
+      "pc": 1,
+      "a": 66,
+      "x": 66,
+      "p": 52
+    }
+  },
+  {
+    "name": "INX - Increment X",
+    "opcode": "E8",
+    "operands": "",
+    "initial": {
+      "pc": 0,
+      "x": 66,
+      "p": 52
+    },
+    "expected": {
+      "pc": 1,
+      "x": 67,
+      "p": 52
+    }
+  },
+  {
+    "name": "DEX - Decrement X",
+    "opcode": "CA",
+    "operands": "",
+    "initial": {
+      "pc": 0,
+      "x": 67,
+      "p": 52
+    },
+    "expected": {
+      "pc": 1,
+      "x": 66,
+      "p": 52
+    }
+  },
+  {
+    "name": "CMP immediate - sets Z and C flags",
+    "opcode": "C9",
+    "operands": "42",
+    "initial": {
+      "pc": 0,
+      "a": 66,
+      "p": 52
+    },
+    "expected": {
+      "pc": 2,
+      "a": 66,
+      "p": 55
+    }
+  },
+  {
+    "name": "NOP",
+    "opcode": "EA",
+    "operands": "",
+    "initial": {
+      "pc": 0,
+      "a": 42,
+      "x": 43,
+      "y": 44
+    },
+    "expected": {
+      "pc": 1,
+      "a": 42,
+      "x": 43,
+      "y": 44
+    }
+  }
+]

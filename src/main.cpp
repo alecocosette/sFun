@@ -1,80 +1,52 @@
-#define SDL_MAIN_HANDLED
-#include <SDL2/SDL.h>
-
+#include <iostream>
+#include <vector>
+#include "TestHarness.h"
 #include "../include/CPU.h"
 #include "../include/Memory.h"
 
-#include <iostream>
-#include <vector>
-
 int main(int argc, char* argv[]) {
-    // ----------------------------
-    // SDL Setup
-    // ----------------------------
-    if (SDL_Init(SDL_INIT_VIDEO) != 0) {
-        SDL_Log("SDL Init Error: %s", SDL_GetError());
-        return 1;
+    // If argument provided, run JSON tests
+    if (argc > 1) {
+        std::string testPath = argv[1];
+        return runTestSuite(testPath);
     }
 
-    SDL_Window* window = SDL_CreateWindow(
-        "SNES Emulator",
-        SDL_WINDOWPOS_CENTERED,
-        SDL_WINDOWPOS_CENTERED,
-        620,
-        420,
-        SDL_WINDOW_SHOWN
-    );
-
-    if (!window) {
-        SDL_Log("Window Error: %s", SDL_GetError());
-        SDL_Quit();
-        return 1;
-    }
-
-    // ----------------------------
-    // Emulator Setup
-    // ----------------------------
+    // Otherwise, run manual bytecode test (for debugging)
     Memory memory;
     CPU cpu(&memory);
 
-    // Test program
+    cpu.PC = 0x0000;
+    cpu.PB = 0x7E;
+    cpu.DB = 0x7E;
+    cpu.A = 0;
+    cpu.X = 0;
+    cpu.Y = 0;
+    cpu.SP = 0x01FF;
+    cpu.P = 0x34;
+    cpu.DP = 0;
+    cpu.emulation = true;
+
     std::vector<uint8_t> program = {
-        0xA9, 0x42,     // LDA #$42
-        0xAA,           // TAX
-        0xE8,           // INX
-        0xCA,           // DEX
-        0xEA            // NOP
+        0xA9, 0x42,  // LDA #$42
+        0xAA,        // TAX
+        0xE8,        // INX
+        0xCA,        // DEX
+        0xEA,        // NOP
     };
 
-    memory.loadROM(program);
+    for (size_t i = 0; i < program.size(); i++) {
+        uint32_t addr = (0x7E << 16) | (cpu.PC + i);
+        cpu.memory->write8(addr, program[i]);
+    }
 
-    cpu.reset();
+    std::cout << "Manual bytecode test:" << std::endl;
+    cpu.printState();
+    std::cout << std::endl;
 
-    std::cout << "Beginning CPU test...\n";
-
-    // Execute every instruction
     for (size_t i = 0; i < program.size(); i++) {
         cpu.step();
-        cpu.printState();      // Debug output after each instruction
+        cpu.printState();
     }
-
-    std::cout << "CPU test finished.\n";
-
-    // ----------------------------
-    // Keep window alive
-    // ----------------------------
-    bool running = true;
-    SDL_Event event;
-
-    while (running) {
-        while (SDL_PollEvent(&event)) {
-            if (event.type == SDL_QUIT)
-                running = false;
-        }
-    }
-
-    SDL_DestroyWindow(window);
-    SDL_Quit();
 
     return 0;
 }

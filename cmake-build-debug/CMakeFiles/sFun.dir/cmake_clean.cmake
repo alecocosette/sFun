@@ -21,6 +21,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/sFun.dir/src/CPUtransfer.cpp.obj.d"
   "CMakeFiles/sFun.dir/src/Memory.cpp.obj"
   "CMakeFiles/sFun.dir/src/Memory.cpp.obj.d"
+  "CMakeFiles/sFun.dir/src/TestHarness.cpp.obj"
+  "CMakeFiles/sFun.dir/src/TestHarness.cpp.obj.d"
   "CMakeFiles/sFun.dir/src/cart.cpp.obj"
   "CMakeFiles/sFun.dir/src/cart.cpp.obj.d"
   "CMakeFiles/sFun.dir/src/main.cpp.obj"

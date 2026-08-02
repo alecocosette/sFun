@@ -1,3 +1,10 @@
+# directories
+65816/
+build/
+cmake-build-debug/
+cmake-build-debug-event-trace/
+extra/
+
 # Prerequisites
 *.d
 

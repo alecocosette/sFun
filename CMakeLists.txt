@@ -4,9 +4,12 @@ project(sFun LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# SDL2 path — pick 64-bit version
-set(SDL2_ROOT "C:/Users/yeims/sFun/extra/SDL2/SDL2-2.28.5/x86_64-w64-mingw32")
+# Fetch nlohmann/json from GitHub
+include(FetchContent)
+FetchContent_Declare(json URL https://github.com/nlohmann/json/releases/download/v3.11.2/json.tar.xz)
+FetchContent_MakeAvailable(json)
 
+# Define the executable
 add_executable(sFun
         src/cpu.cpp
         src/main.cpp
@@ -21,21 +24,14 @@ add_executable(sFun
         src/CPUloadstore.cpp
         src/CPUALU.cpp
         src/CPUincrement.cpp
-
+        src/TestHarness.cpp
 )
 
-# Include headers
+# Link everything
 target_include_directories(sFun PRIVATE
-        ${CMAKE_CURRENT_SOURCE_DIR}/src
-        ${SDL2_ROOT}/include
-)
-
-# Link libraries
-target_link_directories(sFun PRIVATE
-        ${SDL2_ROOT}/lib
+        ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
 
 target_link_libraries(sFun
-        SDL2main
-        SDL2
+        nlohmann_json::nlohmann_json
 )

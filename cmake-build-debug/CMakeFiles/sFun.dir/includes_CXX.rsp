@@ -1,1 +1,1 @@
--IC:/Users/yeims/sFun/src -I"C:/Users/yeims/sFun/extra/SDL2/SDL2-2.28.5/x86_64-w64-mingw32/include"
+-IC:/Users/yeims/sFun/include -I"C:/Users/yeims/sFun/cmake-build-debug/_deps/json-src/include"

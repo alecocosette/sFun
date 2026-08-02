@@ -21,38 +21,19 @@ void Memory::loadROM(const std::vector<uint8_t>& data) {
   rom = data;
 }
 uint8_t Memory::read8(uint32_t address) {
-
-  uint32_t index = address & 0x7FFF;
-  if (index < rom.size()) {
-    return rom[index];
-  } else {
-    return 0xFF;
+  // WRAM: $7E0000-$7FFFFF and $7F0000-$7FFFFF
+  if ((address & 0xFF0000) == 0x7E0000 || (address & 0xFF0000) == 0x7F0000) {
+    return wram[address & 0x1FFFF];
   }
-  //come bacl to it later
-  // if ((0xFF0000 & address) == 0x7E0000 || (0xFF0000 & address) == 0x7F0000) {
-  //   return wram[address & 0x01FFFF];
-  // }
-  // if ((address & 0x8000) && (address <= 0x00FFFF)) {
-  //   return rom[address & 0x7FFF];
-  // }
-  // return 0xFF;
+
+  // ROM: $8000-$FFFF in banks $00-$7F
+  // For now, just default to 0xFF for anything else
+  return 0xFF;
 }
 uint16_t Memory::read16(uint32_t address) {
-
-  uint32_t index = address & 0x7FFF;
-  if (index < rom.size()) {
-    return rom[index];
-  } else {
-    return 0xFF;
-  }
-  //come bacl to it later
-  // if ((0xFF0000 & address) == 0x7E0000 || (0xFF0000 & address) == 0x7F0000) {
-  //   return wram[address & 0x01FFFF];
-  // }
-  // if ((address & 0x8000) && (address <= 0x00FFFF)) {
-  //   return rom[address & 0x7FFF];
-  // }
-  // return 0xFF;
+  uint8_t low = read8(address);
+  uint8_t high = read8(address + 1);
+  return low | (high << 8);
 }
 void Memory::write8(uint32_t address, uint8_t value) {
   if ((address & 0xFF0000) == 0x7E0000 || (address & 0xFF0000) == 0x7F0000) {
@@ -60,7 +41,6 @@ void Memory::write8(uint32_t address, uint8_t value) {
   }
 }
 void Memory::write16(uint32_t address, uint16_t value) {
-  if ((address & 0xFF0000) == 0x7E0000 || (address & 0xFF0000) == 0x7F0000) {
-    wram[address & 0x1FFFF] = value;
-  }
+  write8(address, value & 0xFF);
+  write8(address + 1, (value >> 8) & 0xFF);
 }

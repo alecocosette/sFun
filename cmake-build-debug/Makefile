@@ -392,6 +392,30 @@ src/Memory.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/src/Memory.cpp.s
 .PHONY : src/Memory.cpp.s
 
+src/TestHarness.obj: src/TestHarness.cpp.obj
+.PHONY : src/TestHarness.obj
+
+# target to build an object file
+src/TestHarness.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/src/TestHarness.cpp.obj
+.PHONY : src/TestHarness.cpp.obj
+
+src/TestHarness.i: src/TestHarness.cpp.i
+.PHONY : src/TestHarness.i
+
+# target to preprocess a source file
+src/TestHarness.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/src/TestHarness.cpp.i
+.PHONY : src/TestHarness.cpp.i
+
+src/TestHarness.s: src/TestHarness.cpp.s
+.PHONY : src/TestHarness.s
+
+# target to generate assembly for a file
+src/TestHarness.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sFun.dir\build.make CMakeFiles/sFun.dir/src/TestHarness.cpp.s
+.PHONY : src/TestHarness.cpp.s
+
 src/cart.obj: src/cart.cpp.obj
 .PHONY : src/cart.obj
 
@@ -482,6 +506,9 @@ help:
 	@echo ... src/Memory.obj
 	@echo ... src/Memory.i
 	@echo ... src/Memory.s
+	@echo ... src/TestHarness.obj
+	@echo ... src/TestHarness.i
+	@echo ... src/TestHarness.s
 	@echo ... src/cart.obj
 	@echo ... src/cart.i
 	@echo ... src/cart.s
