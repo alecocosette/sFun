@@ -1,3 +1,0 @@
-"C:\Users\yeims\New folder (2)\CLion 2024.3.1.1\bin\cmake\win\x64\bin\cmake.exe" -E rm -f CMakeFiles\sFun.dir/objects.a
-C:\msys64\mingw64\bin\ar.exe qc CMakeFiles\sFun.dir/objects.a @CMakeFiles\sFun.dir\objects1.rsp
-C:\msys64\mingw64\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\sFun.dir/objects.a -Wl,--no-whole-archive -o sFun.exe -Wl,--out-implib,libsFun.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\sFun.dir\linkLibs.rsp

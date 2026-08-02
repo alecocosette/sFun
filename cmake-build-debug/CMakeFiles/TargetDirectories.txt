@@ -1,5 +1,0 @@
-C:/Users/yeims/sFun/cmake-build-debug/CMakeFiles/sFun.dir
-C:/Users/yeims/sFun/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/yeims/sFun/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-C:/Users/yeims/sFun/cmake-build-debug/_deps/json-build/CMakeFiles/edit_cache.dir
-C:/Users/yeims/sFun/cmake-build-debug/_deps/json-build/CMakeFiles/rebuild_cache.dir
