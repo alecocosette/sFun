@@ -104,5 +104,110 @@
       "x": 43,
       "y": 44
     }
+  },
+  {
+    "name": "ADC 8-bit no carry",
+    "opcode": "69",
+    "operands": "01",
+    "initial": {
+      "pc": 0,
+      "a": 1,
+      "p": 52
+    },
+    "expected": {
+      "pc": 2,
+      "a": 2,
+      "p": 52
+    }
+  },
+  {
+    "name": "ADC 8-bit with carry flag set",
+    "opcode": "69",
+    "operands": "01",
+    "initial": {
+      "pc": 0,
+      "a": 255,
+      "p": 53
+    },
+    "expected": {
+      "pc": 2,
+      "a": 1,
+      "p": 53
+    }
+  },
+  {
+    "name": "SBC 8-bit",
+    "opcode": "E9",
+    "operands": "01",
+    "initial": {
+      "pc": 0,
+      "a": 5,
+      "p": 53
+    },
+    "expected": {
+      "pc": 2,
+      "a": 4,
+      "p": 53
+    }
+  },
+  {
+    "name": "CPX immediate",
+    "opcode": "E0",
+    "operands": "42",
+    "initial": {
+      "pc": 0,
+      "x": 66,
+      "p": 52
+    },
+    "expected": {
+      "pc": 2,
+      "x": 66,
+      "p": 55
+    }
+  },
+  {
+    "name": "CPY immediate",
+    "opcode": "C0",
+    "operands": "42",
+    "initial": {
+      "pc": 0,
+      "y": 66,
+      "p": 52
+    },
+    "expected": {
+      "pc": 2,
+      "y": 66,
+      "p": 55
+    }
+  },
+  {
+    "name": "AND clears V flag, sets N flag",
+    "opcode": "29",
+    "operands": "FF",
+    "initial": {
+      "pc": 0,
+      "a": 255,
+      "p": 116
+    },
+    "expected": {
+      "pc": 2,
+      "a": 255,
+      "p": 180
+    }
+  },
+  {
+    "name": "ORA clears V flag",
+    "opcode": "09",
+    "operands": "01",
+    "initial": {
+      "pc": 0,
+      "a": 0,
+      "p": 116
+    },
+    "expected": {
+      "pc": 2,
+      "a": 1,
+      "p": 52
+    }
   }
 ]
