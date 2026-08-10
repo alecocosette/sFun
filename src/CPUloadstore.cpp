@@ -12,16 +12,7 @@ void CPU::LDA(uint32_t value) {
         setZN(A, 16);
     }
 }
-void CPU::LDY(uint32_t value) {
-    if (indexis8()) {
-        Y = (Y & 0xFF00) | (value & 0xFF);
-        setZN(Y & 0xFF, 8);
-    }
-    else {
-        Y = value & 0xFFFF;
-        setZN(Y, 16);
-    }
-}
+
 void CPU::op_LDA_imm() {
     uint32_t value = fetchAccumulator();
     LDA(value);
@@ -32,6 +23,27 @@ void CPU::op_LDA_dp() {
     uint32_t value = accumulatoris8()
         ? memory->read8(addr)
         : memory->read16(addr);
+    LDA(value);
+}
+void CPU::op_LDA_long() {
+    uint32_t addr = addr_long();
+    uint32_t value = fetchAccumulator();
+    LDA(value);
+}
+void CPU::op_LDA_ind_x() {
+    uint32_t addr = addr_ind_x();
+    uint32_t value = memory->read8(addr);
+    if (!accumulatoris8()) {
+        value |= (memory->read8(addr + 1) << 8);
+    }
+    LDA(value);
+}
+void CPU::op_LDA_ind_y() {
+    uint32_t addr = addr_ind_y();
+    uint32_t value = memory->read8(addr);
+    if (!accumulatoris8()) {
+        value |= (memory->read8(addr + 1) << 8);
+    }
     LDA(value);
 }
 void CPU::op_LDX_imm() {
@@ -45,8 +57,16 @@ void CPU::op_LDX_imm() {
         setZN(value, 16);
     }
 }
-
-
+void CPU::LDY(uint32_t value) {
+    if (indexis8()) {
+        Y = (Y & 0xFF00) | (value & 0xFF);
+        setZN(Y & 0xFF, 8);
+    }
+    else {
+        Y = value & 0xFFFF;
+        setZN(Y, 16);
+    }
+}
 
 
 
@@ -81,4 +101,76 @@ void CPU::op_STY_dp() {
     else {
         memory->write16(addr, Y & 0xFFFF);
     }
+}
+
+
+void CPU::op_ADC_long() {
+    uint32_t addr = addr_long();
+    uint32_t value = fetchAccumulator();
+    ADC(value);
+}
+
+void CPU::op_SBC_long() {
+    uint32_t addr = addr_long();
+    uint32_t value = fetchAccumulator();
+    SBC(value);
+}
+
+
+
+void CPU::op_ADC_ind_x() {
+    uint32_t addr = addr_ind_x();
+    uint32_t value = memory->read8(addr);
+    if (!accumulatoris8()) {
+        value |= (memory->read8(addr + 1) << 8);
+    }
+    ADC(value);
+}
+
+void CPU::op_SBC_ind_x() {
+    uint32_t addr = addr_ind_x();
+    uint32_t value = memory->read8(addr);
+    if (!accumulatoris8()) {
+        value |= (memory->read8(addr + 1) << 8);
+    }
+    SBC(value);
+}
+
+
+
+void CPU::op_ADC_ind_y() {
+    uint32_t addr = addr_ind_y();
+    uint32_t value = memory->read8(addr);
+    if (!accumulatoris8()) {
+        value |= (memory->read8(addr + 1) << 8);
+    }
+    ADC(value);
+}
+
+void CPU::op_SBC_ind_y() {
+    uint32_t addr = addr_ind_y();
+    uint32_t value = memory->read8(addr);
+    if (!accumulatoris8()) {
+        value |= (memory->read8(addr + 1) << 8);
+    }
+    SBC(value);
+}
+
+// Stack relative
+void CPU::op_ADC_stack() {
+    uint32_t addr = addr_stack_rel();
+    uint32_t value = memory->read8(addr);
+    if (!accumulatoris8()) {
+        value |= (memory->read8(addr + 1) << 8);
+    }
+    ADC(value);
+}
+
+void CPU::op_SBC_stack() {
+    uint32_t addr = addr_stack_rel();
+    uint32_t value = memory->read8(addr);
+    if (!accumulatoris8()) {
+        value |= (memory->read8(addr + 1) << 8);
+    }
+    SBC(value);
 }

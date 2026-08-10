@@ -209,5 +209,71 @@
       "a": 1,
       "p": 52
     }
+  },
+  {
+    "name": "LDA long absolute $7E1234",
+    "opcode": "AF",
+    "operands": "341234",
+    "initial": {
+      "pc": 0,
+      "a": 0,
+      "pb": 126,
+      "p": 52
+    },
+    "expected": {
+      "pc": 3,
+      "a": 99,
+      "pb": 126,
+      "p": 52
+    }
+  },
+  {
+    "name": "LDA indexed indirect ($10,X)",
+    "opcode": "A1",
+    "operands": "10",
+    "initial": {
+      "pc": 0,
+      "a": 0,
+      "x": 5,
+      "p": 52
+    },
+    "expected": {
+      "pc": 2,
+      "a": 99,
+      "p": 52
+    }
+  },
+  {
+    "name": "LDA indirect indexed ($10),Y",
+    "opcode": "B1",
+    "operands": "10",
+    "initial": {
+      "pc": 0,
+      "a": 0,
+      "y": 5,
+      "p": 52
+    },
+    "expected": {
+      "pc": 2,
+      "a": 99,
+      "p": 52
+    }
+  },
+  {
+    "name": "ADC stack relative $10,S",
+    "opcode": "A3",
+    "operands": "10",
+    "initial": {
+      "pc": 0,
+      "a": 50,
+      "sp": 511,
+      "p": 52
+    },
+    "expected": {
+      "pc": 2,
+      "a": 149,
+      "sp": 511,
+      "p": 52
+    }
   }
 ]

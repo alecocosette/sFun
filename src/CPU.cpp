@@ -235,6 +235,24 @@ void CPU::initOpcodeArray() {
     // ----------------------------
     opcodeArray[0xC2] = &CPU::op_REP;
     opcodeArray[0xE2] = &CPU::op_SEP;
+   // Long absolute addressing
+   opcodeArray[0xAF] = &CPU::op_LDA_long;  // LDA $xxxxxx
+   opcodeArray[0x6F] = &CPU::op_ADC_long; // ADC $xxxxxx
+   opcodeArray[0xEF] = &CPU::op_SBC_long; // SBC $xxxxxx
+
+   // Indexed indirect
+   opcodeArray[0xA1] = &CPU::op_LDA_ind_x;  // LDA ($xx,X)
+   opcodeArray[0x61] = &CPU::op_ADC_ind_x;  // ADC ($xx,X)
+   opcodeArray[0xE1] = &CPU::op_SBC_ind_x;  // SBC ($xx,X)
+
+   // Indirect indexed
+   opcodeArray[0xB1] = &CPU::op_LDA_ind_y;  // LDA ($xx),Y
+   opcodeArray[0x71] = &CPU::op_ADC_ind_y;  // ADC ($xx),Y
+   opcodeArray[0xF1] = &CPU::op_SBC_ind_y;  // SBC ($xx),Y
+
+   // Stack relative
+   opcodeArray[0xA3] = &CPU::op_ADC_stack;  // ADC $xx,S
+   opcodeArray[0xE3] = &CPU::op_SBC_stack;  // SBC $xx,S
 }
 
 void CPU::step() {

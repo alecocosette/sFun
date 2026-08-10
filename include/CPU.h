@@ -71,6 +71,22 @@ struct CPU {
 
     void op_STY_dp();
 
+    void op_ADC_long();
+
+    void op_SBC_long();
+
+    void op_ADC_ind_x();
+
+    void op_SBC_ind_x();
+
+    void op_ADC_ind_y();
+
+    void op_SBC_ind_y();
+
+    void op_ADC_stack();
+
+    void op_SBC_stack();
+
     void op_TAX();
 
     void op_TAY();
@@ -167,11 +183,19 @@ struct CPU {
 
     uint32_t addr_absolute_y();
 
+    uint32_t addr_long();
+
     uint32_t addr_dp();
 
     uint32_t addr_dp_x();
 
     uint32_t addr_dp_y();
+
+    uint32_t addr_ind_x();
+
+    uint32_t addr_ind_y();
+
+    uint32_t addr_stack_rel();
 
     void unimplemented_op();
  void op_NOP();
@@ -184,6 +208,12 @@ struct CPU {
     void op_LDA_imm();
 
     void op_LDA_dp();
+
+    void op_LDA_long();
+
+    void op_LDA_ind_x();
+
+    void op_LDA_ind_y();
 
     void op_LDX_imm();
 
