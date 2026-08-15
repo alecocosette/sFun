@@ -253,6 +253,13 @@ void CPU::initOpcodeArray() {
    // Stack relative
    opcodeArray[0xA3] = &CPU::op_ADC_stack;  // ADC $xx,S
    opcodeArray[0xE3] = &CPU::op_SBC_stack;  // SBC $xx,S
+
+   // Interrupts
+   opcodeArray[0x00] = &CPU::op_BRK;
+   opcodeArray[0x02] = &CPU::op_COP;
+   opcodeArray[0xCB] = &CPU::op_WAI;
+   opcodeArray[0xDB] = &CPU::op_STP;
+   opcodeArray[0x40] = &CPU::op_RTI;
 }
 
 void CPU::step() {

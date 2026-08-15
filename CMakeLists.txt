@@ -24,6 +24,8 @@ add_executable(sFun
         src/CPUloadstore.cpp
         src/CPUALU.cpp
         src/CPUincrement.cpp
+        src/CPUinterrupts.cpp
+
         src/TestHarness.cpp
 )
 

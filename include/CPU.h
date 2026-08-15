@@ -196,7 +196,11 @@ struct CPU {
     uint32_t addr_ind_y();
 
     uint32_t addr_stack_rel();
-
+ void op_BRK();
+ void op_COP();
+ void op_RTI();
+ void op_WAI();
+ void op_STP();
     void unimplemented_op();
  void op_NOP();
  void LDA(uint32_t val);
