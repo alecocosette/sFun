@@ -8,6 +8,7 @@
 #include <iomanip>
 #include "../include/CPU.h"
 #include "../include/Memory.h"
+#include "../include/Bus.h"
 
 using json = nlohmann::json;
 
@@ -39,9 +40,12 @@ TestResult runTest(const json& testCase) {
     result.passed = true;
     result.failureReason = "";
 
-    // Create fresh CPU and memory
-    Memory memory;
-    CPU cpu(&memory);
+    std::cout << "Testing: " << result.name << std::flush;
+
+    // Create fresh Bus and CPU
+    Bus bus;
+    CPU cpu(&bus);
+
 
     // Parse initial state
     const auto& initial = testCase["initial"];
@@ -56,6 +60,7 @@ TestResult runTest(const json& testCase) {
     uint8_t pb = getOrDefault(initial, "pb", 0x7EU);
     uint16_t dp = getOrDefault(initial, "dp", 0U);
 
+
     // Set CPU state
     cpu.PC = pc;
     cpu.A = a;
@@ -67,12 +72,11 @@ TestResult runTest(const json& testCase) {
     cpu.PB = pb;
     cpu.DP = dp;
 
-    // Load opcode and operands into memory
     std::string opcodeStr = testCase["opcode"].get<std::string>();
     uint8_t opcode = std::stoi(opcodeStr, nullptr, 16);
 
     uint32_t addr = (pb << 16) | pc;
-    cpu.memory->write8(addr, opcode);
+    bus.write8(addr, opcode);
 
     // Write operands if present
     if (testCase.contains("operands")) {
@@ -81,14 +85,22 @@ TestResult runTest(const json& testCase) {
             uint32_t operandAddr = addr + 1;
             for (size_t i = 0; i < operands.length(); i += 2) {
                 std::string byteStr = operands.substr(i, 2);
-                uint8_t byte = std::stoi(byteStr, nullptr, 16);
-                cpu.memory->write8(operandAddr, byte);
+                uint8_t operandByte = std::stoi(byteStr, nullptr, 16);
+                bus.write8(operandAddr, operandByte);
+
+                // DEBUG: verify operand was written
+                uint8_t verify = bus.read8(operandAddr);
+                std::cout << " [wrote operand 0x" << std::hex << (int)operandByte
+                          << ", verify read 0x" << (int)verify << std::dec << "]";
+
                 operandAddr++;
             }
         }
     }
+    std::cout << std::flush;
 
-    // Execute one instruction
+
+    // Execute
     cpu.step();
 
     // Parse expected state

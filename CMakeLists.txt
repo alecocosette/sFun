@@ -27,6 +27,8 @@ add_executable(sFun
         src/CPUinterrupts.cpp
 
         src/TestHarness.cpp
+        include/Bus.h
+        src/Bus.cpp
 )
 
 # Link everything

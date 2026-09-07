@@ -3,6 +3,7 @@
 #include "TestHarness.h"
 #include "../include/CPU.h"
 #include "../include/Memory.h"
+#include "../include/Bus.h"
 
 int main(int argc, char* argv[]) {
     // If argument provided, run JSON tests
@@ -10,10 +11,10 @@ int main(int argc, char* argv[]) {
         std::string testPath = argv[1];
         return runTestSuite(testPath);
     }
-
+    Bus bus;
+    CPU cpu(&bus);
     // Otherwise, run manual bytecode test (for debugging)
     Memory memory;
-    CPU cpu(&memory);
 
     cpu.PC = 0x0000;
     cpu.PB = 0x7E;

@@ -1,6 +1,7 @@
 //
 // Created by yeims on 6/21/2026.
 //
+#include "Bus.h"
 #include "../include/CPU.h"
 
 uint16_t CPU::fetch16() {
@@ -10,7 +11,7 @@ uint16_t CPU::fetch16() {
 }
 uint8_t CPU::fetch8(){
     uint32_t addr = (PB << 16) | PC;
-    uint8_t data = memory->read8(addr);
+    uint8_t data = bus->read8(addr);  // Changed from memory->read8
     PC++;
     return data;
 }

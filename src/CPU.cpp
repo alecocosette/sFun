@@ -283,6 +283,10 @@ void CPU::reset(){
    PC = (high << 8) | low;
    PB = 0x00;
 }
+CPU::CPU(Bus *b):bus(b) {
+   initOpcodeArray();
+}
+
 
 
 

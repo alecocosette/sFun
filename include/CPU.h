@@ -10,7 +10,7 @@
 #include <stdint.h>
 
 #include "../include/Memory.h"
-
+class Bus;
 struct CPU {
     uint16_t A=0, X=0, Y = 0;
     uint16_t PC=0;
@@ -263,6 +263,10 @@ struct CPU {
 
     void op_REP();
  void op_SEP();
+
+Bus * bus;
+ CPU(Bus * b);
+
 };
 
 

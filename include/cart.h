@@ -12,6 +12,7 @@
 // switch to vectors and enums
 class Cart{
     public:
+    Cart();
     std::vector<uint8_t> rom;
     std::vector<uint8_t> sram;
 
